@@ -45,26 +45,22 @@ function parseSignal(message) {
 const apiId = Number(process.env.API_ID); // API ID from the .env file
 const apiHash = process.env.API_HASH;
 
-console.log(apiId, apiHash);
-
 const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout,
 });
 
-const stringSession = new StringSession(process.env.SESSION_STRING || "");
+console.log(process.env.SESSION_STRING);
+const stringSession = new StringSession(process.env.SESSION_STRING);
 
 (async () => {
   const client = new TelegramClient(stringSession, apiId, apiHash, {
     connectionRetries: 5,
   });
 
-  // password takes an async function
-  // how are async functions called?
-
   try {
     await client.start({
-      phoneNumber: "+2348121491678",
+      phoneNumber: process.env.PHONE_NO,
       password: () => {
         return new Promise((resolve) => {
           rl.question("Enter your password: ", (answer) => {
@@ -83,7 +79,7 @@ const stringSession = new StringSession(process.env.SESSION_STRING || "");
     });
 
     console.log("✅ Logged in successfully!");
-    console.log("Session string:", client.session.save());
+    console.log(client.session.save());
   } catch (error) {
     console.error("Not Authenticated", error);
   }

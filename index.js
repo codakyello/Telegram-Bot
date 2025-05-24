@@ -114,3 +114,5 @@ const stringSession = new StringSession(process.env.SESSION_STRING);
     console.error("Error fetching channel:", error);
   }
 })();
+
+process.stdin.resume();

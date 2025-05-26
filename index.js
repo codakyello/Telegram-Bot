@@ -10,14 +10,8 @@ const hpp = require("hpp");
 const AppError = require("./utils/appError");
 
 // Routes
-
+const signalRoutes = require("./routes/signalRoutes");
 const app = express();
-
-const originalUse = app.use.bind(app);
-app.use = (path, ...rest) => {
-  console.log("Registering route:", path);
-  return originalUse(path, ...rest);
-};
 
 app.use(cors());
 app.use(helmet());
@@ -30,6 +24,7 @@ app.use(express.static(`${__dirname}/public`));
 
 // Routes
 
+app.use("/api/v1/signals", signalRoutes);
 app.get("/", (_req, res) => {
   res.send("<h1>Deployment Check</h1>");
 });

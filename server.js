@@ -27,10 +27,24 @@ process.on("unhandledRejection", (err) => {
 
 // Database connection with retry logic
 async function connectToDatabase() {
-  const DB = process.env.DATABASE?.replace(
+  // Check if DATABASE environment variable is set
+  if (!process.env.DATABASE) {
+    console.log("⚠️  No DATABASE environment variable found");
+    console.log("⚠️  Skipping MongoDB connection - running without database");
+    return;
+  }
+
+  const DB = process.env.DATABASE.replace(
     "<PASSWORD>",
     process.env.DATABASE_PASSWORD || ""
   );
+
+  // Validate the connection string
+  if (!DB || DB === "undefined" || !DB.startsWith("mongodb")) {
+    console.log("⚠️  Invalid DATABASE connection string");
+    console.log("⚠️  Skipping MongoDB connection - running without database");
+    return;
+  }
 
   const maxRetries = 5;
   let retries = 0;
@@ -56,7 +70,8 @@ async function connectToDatabase() {
         console.error(
           `💀 Failed to connect to MongoDB after ${maxRetries} attempts`
         );
-        process.exit(1);
+        console.log("⚠️  Continuing without database connection");
+        break;
       }
 
       // Wait before retry
@@ -168,13 +183,19 @@ async function startTelegramBotWithRetry() {
 // Health check endpoint
 if (app && typeof app.get === "function") {
   app.get("/health", (req, res) => {
+    const dbStatus =
+      mongoose.connection.readyState === 1
+        ? "connected"
+        : mongoose.connection.readyState === 0
+        ? "disconnected"
+        : "connecting";
+
     res.status(200).json({
       status: "OK",
       timestamp: new Date().toISOString(),
       uptime: process.uptime(),
       memory: process.memoryUsage(),
-      database:
-        mongoose.connection.readyState === 1 ? "connected" : "disconnected",
+      database: dbStatus,
     });
   });
 }

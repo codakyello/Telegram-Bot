@@ -13,6 +13,12 @@ const AppError = require("./utils/appError");
 
 const app = express();
 
+const originalUse = app.use.bind(app);
+app.use = (path, ...rest) => {
+  console.log("Registering route:", path);
+  return originalUse(path, ...rest);
+};
+
 app.use(cors());
 app.use(helmet());
 app.use(cookieParser());

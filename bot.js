@@ -77,6 +77,7 @@ async function startTelegramBot() {
 
   client.addEventHandler((event) => {
     const message = event.message.message;
+    console.log(message);
     if (!isSignal(message)) return;
 
     const signal = parseSignal(message);

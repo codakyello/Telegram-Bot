@@ -1,6 +1,7 @@
 // // server.js
-// const dotenv = require("dotenv");
-// const app = require("./index");
+const dotenv = require("dotenv");
+// const express = require("express");
+const app = require("./index");
 // // const startTelegramBot = require("./bot");
 // const mongoose = require("mongoose");
 
@@ -45,10 +46,7 @@
 //   });
 // });
 
-const dotenv = require("dotenv");
-const express = require("express");
-
-const app = express();
+// const app = express();
 
 dotenv.config({ path: `${__dirname}/config.env` });
 

@@ -99,7 +99,7 @@ class TelegramBotManager {
     console.log(`🌍 Environment: ${isProduction ? "Production" : "Local"}`);
     console.log(`🆔 Deployment ID: ${deploymentId}`);
 
-    this.sessionString = new StringSession(sessionString);
+    this.sessionString = new StringSession("");
 
     this.client = new TelegramClient(this.sessionString, apiId, apiHash, {
       connectionRetries: 5,
@@ -344,41 +344,41 @@ class TelegramBotManager {
     console.log("✅ Event handlers setup complete");
   }
 
-  startKeepAlive() {
-    this.keepAliveInterval = setInterval(async () => {
-      try {
-        if (this.client && this.client.connected) {
-          await this.client.invoke(
-            new Api.Ping({
-              pingId: BigInt(Date.now()),
-            })
-          );
-          console.log("💓 Keep-alive ping sent");
-        }
-      } catch (error) {
-        console.error("Keep-alive ping failed:", error);
-        if (!this.isReconnecting) {
-          await this.handleReconnection();
-        }
-      }
-    }, 60000);
+  // startKeepAlive() {
+  //   this.keepAliveInterval = setInterval(async () => {
+  //     try {
+  //       if (this.client && this.client.connected) {
+  //         await this.client.invoke(
+  //           new Api.Ping({
+  //             pingId: BigInt(Date.now()),
+  //           })
+  //         );
+  //         console.log("💓 Keep-alive ping sent");
+  //       }
+  //     } catch (error) {
+  //       console.error("Keep-alive ping failed:", error);
+  //       if (!this.isReconnecting) {
+  //         await this.handleReconnection();
+  //       }
+  //     }
+  //   }, 60000);
 
-    this.healthCheckInterval = setInterval(async () => {
-      try {
-        if (this.client && this.client.connected && this.isAuthenticated) {
-          await this.client.getMe();
-          console.log("🏥 Health check passed");
-        }
-      } catch (error) {
-        console.error("Health check failed:", error);
-        if (!this.isReconnecting) {
-          await this.handleReconnection();
-        }
-      }
-    }, 30000);
+  //   this.healthCheckInterval = setInterval(async () => {
+  //     try {
+  //       if (this.client && this.client.connected && this.isAuthenticated) {
+  //         await this.client.getMe();
+  //         console.log("🏥 Health check passed");
+  //       }
+  //     } catch (error) {
+  //       console.error("Health check failed:", error);
+  //       if (!this.isReconnecting) {
+  //         await this.handleReconnection();
+  //       }
+  //     }
+  //   }, 30000);
 
-    console.log("✅ Keep-alive system started");
-  }
+  //   console.log("✅ Keep-alive system started");
+  // }
 
   async handleReconnection() {
     if (this.isReconnecting) {
@@ -483,7 +483,7 @@ class TelegramBotManager {
       await this.setupChannels();
 
       this.setupEventHandlers();
-      this.startKeepAlive();
+      // this.startKeepAlive();
 
       console.log("✅ Telegram bot started successfully!");
       console.log(

@@ -4,7 +4,7 @@ dotenv.config({ path: `${__dirname}/config.env` });
 const app = require("./index");
 const mongoose = require("mongoose");
 
-const telegramBot = require("./bot");
+const telegramBot = require("./telegram");
 
 // Enhanced error handling
 process.on("uncaughtException", (err) => {

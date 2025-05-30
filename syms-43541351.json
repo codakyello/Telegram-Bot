@@ -1,0 +1,1302 @@
+[
+  {
+    "symbolId": 10020,
+    "symbolName": "XNGUSD",
+    "enabled": true,
+    "baseAssetId": 45,
+    "quoteAssetId": 16,
+    "symbolCategoryId": 7,
+    "description": "Natural Gas",
+    "sortingNumber": 1
+  },
+  {
+    "symbolId": 44,
+    "symbolName": "XAGEUR",
+    "enabled": true,
+    "baseAssetId": 17,
+    "quoteAssetId": 5,
+    "symbolCategoryId": 2,
+    "description": "Silver vs Euro",
+    "sortingNumber": 1
+  },
+  {
+    "symbolId": 42,
+    "symbolName": "XAGUSD",
+    "enabled": true,
+    "baseAssetId": 17,
+    "quoteAssetId": 16,
+    "symbolCategoryId": 2,
+    "description": "Silver vs US Dollar",
+    "sortingNumber": 2
+  },
+  {
+    "symbolId": 43,
+    "symbolName": "XAUEUR",
+    "enabled": true,
+    "baseAssetId": 18,
+    "quoteAssetId": 5,
+    "symbolCategoryId": 2,
+    "description": "Gold vs Euro",
+    "sortingNumber": 3
+  },
+  {
+    "symbolId": 41,
+    "symbolName": "XAUUSD",
+    "enabled": true,
+    "baseAssetId": 18,
+    "quoteAssetId": 16,
+    "symbolCategoryId": 2,
+    "description": "Gold vs US Dollar",
+    "sortingNumber": 4
+  },
+  {
+    "symbolId": 10016,
+    "symbolName": "XPDUSD",
+    "enabled": true,
+    "baseAssetId": 41,
+    "quoteAssetId": 16,
+    "symbolCategoryId": 2,
+    "description": "Palladium",
+    "sortingNumber": 5
+  },
+  {
+    "symbolId": 10017,
+    "symbolName": "XPTUSD",
+    "enabled": true,
+    "baseAssetId": 42,
+    "quoteAssetId": 16,
+    "symbolCategoryId": 2,
+    "description": "Platinum",
+    "sortingNumber": 6
+  },
+  {
+    "symbolId": 10032,
+    "symbolName": "XAUAUD",
+    "enabled": true,
+    "baseAssetId": 18,
+    "quoteAssetId": 1,
+    "symbolCategoryId": 2,
+    "description": "Gold vs Australian Dollar",
+    "sortingNumber": 7
+  },
+  {
+    "symbolId": 1,
+    "symbolName": "EURUSD",
+    "enabled": true,
+    "baseAssetId": 5,
+    "quoteAssetId": 16,
+    "symbolCategoryId": 1,
+    "description": "Euro vs US Dollar",
+    "sortingNumber": 100
+  },
+  {
+    "symbolId": 5,
+    "symbolName": "AUDUSD",
+    "enabled": true,
+    "baseAssetId": 1,
+    "quoteAssetId": 16,
+    "symbolCategoryId": 1,
+    "description": "Australian vs US Dollar",
+    "sortingNumber": 150
+  },
+  {
+    "symbolId": 2,
+    "symbolName": "GBPUSD",
+    "enabled": true,
+    "baseAssetId": 6,
+    "quoteAssetId": 16,
+    "symbolCategoryId": 1,
+    "description": "British Pound vs US Dollar",
+    "sortingNumber": 200
+  },
+  {
+    "symbolId": 8,
+    "symbolName": "USDCAD",
+    "enabled": true,
+    "baseAssetId": 16,
+    "quoteAssetId": 2,
+    "symbolCategoryId": 1,
+    "description": "US Dollar vs Canadian",
+    "sortingNumber": 250
+  },
+  {
+    "symbolId": 6,
+    "symbolName": "USDCHF",
+    "enabled": true,
+    "baseAssetId": 16,
+    "quoteAssetId": 3,
+    "symbolCategoryId": 1,
+    "description": "US Dollar vs Swiss Franc",
+    "sortingNumber": 275
+  },
+  {
+    "symbolId": 4,
+    "symbolName": "USDJPY",
+    "enabled": true,
+    "baseAssetId": 16,
+    "quoteAssetId": 9,
+    "symbolCategoryId": 1,
+    "description": "US Dollar vs Japanese Yen",
+    "sortingNumber": 287
+  },
+  {
+    "symbolId": 18,
+    "symbolName": "AUDCAD",
+    "enabled": true,
+    "baseAssetId": 1,
+    "quoteAssetId": 2,
+    "symbolCategoryId": 1,
+    "description": "Australian Dollar vs Canadian Dollar",
+    "sortingNumber": 293
+  },
+  {
+    "symbolId": 23,
+    "symbolName": "AUDCHF",
+    "enabled": true,
+    "baseAssetId": 1,
+    "quoteAssetId": 3,
+    "symbolCategoryId": 1,
+    "description": "Australian Dollar vs Swiss Franc",
+    "sortingNumber": 294
+  },
+  {
+    "symbolId": 38,
+    "symbolName": "AUDDKK",
+    "enabled": false,
+    "baseAssetId": 1,
+    "quoteAssetId": 4,
+    "symbolCategoryId": 1,
+    "description": "Australian Dollar vs Danish Krone",
+    "sortingNumber": 295
+  },
+  {
+    "symbolId": 11,
+    "symbolName": "AUDJPY",
+    "enabled": true,
+    "baseAssetId": 1,
+    "quoteAssetId": 9,
+    "symbolCategoryId": 1,
+    "description": "Australian Dollar vs Japanese Yen",
+    "sortingNumber": 296
+  },
+  {
+    "symbolId": 20,
+    "symbolName": "AUDNZD",
+    "enabled": true,
+    "baseAssetId": 1,
+    "quoteAssetId": 12,
+    "symbolCategoryId": 1,
+    "description": "Australian vs New Zealand Dollar",
+    "sortingNumber": 298
+  },
+  {
+    "symbolId": 15,
+    "symbolName": "CADJPY",
+    "enabled": true,
+    "baseAssetId": 2,
+    "quoteAssetId": 9,
+    "symbolCategoryId": 1,
+    "description": "Canadian Dollar vs Japanese Yen",
+    "sortingNumber": 299
+  },
+  {
+    "symbolId": 27,
+    "symbolName": "CADCHF",
+    "enabled": true,
+    "baseAssetId": 2,
+    "quoteAssetId": 3,
+    "symbolCategoryId": 1,
+    "description": "Canadian Dollar vs Swiss Franc",
+    "sortingNumber": 299
+  },
+  {
+    "symbolId": 1001,
+    "symbolName": "AUDSGD",
+    "enabled": true,
+    "baseAssetId": 1,
+    "quoteAssetId": 15,
+    "symbolCategoryId": 1,
+    "description": "Australian Dollar vs Singapore Dollar",
+    "sortingNumber": 299
+  },
+  {
+    "symbolId": 13,
+    "symbolName": "CHFJPY",
+    "enabled": true,
+    "baseAssetId": 3,
+    "quoteAssetId": 9,
+    "symbolCategoryId": 1,
+    "description": "Swiss Franc vs Japanese Yen",
+    "sortingNumber": 749
+  },
+  {
+    "symbolId": 1002,
+    "symbolName": "CHFSGD",
+    "enabled": true,
+    "baseAssetId": 3,
+    "quoteAssetId": 15,
+    "symbolCategoryId": 1,
+    "description": "Swiss Franc vs Singapore Dollar",
+    "sortingNumber": 974
+  },
+  {
+    "symbolId": 14,
+    "symbolName": "EURAUD",
+    "enabled": true,
+    "baseAssetId": 5,
+    "quoteAssetId": 1,
+    "symbolCategoryId": 1,
+    "description": "Euro vs Australian Dollar",
+    "sortingNumber": 1400
+  },
+  {
+    "symbolId": 17,
+    "symbolName": "EURCAD",
+    "enabled": true,
+    "baseAssetId": 5,
+    "quoteAssetId": 2,
+    "symbolCategoryId": 1,
+    "description": "Euro vs Canadian Dollar",
+    "sortingNumber": 1425
+  },
+  {
+    "symbolId": 10,
+    "symbolName": "EURCHF",
+    "enabled": true,
+    "baseAssetId": 5,
+    "quoteAssetId": 3,
+    "symbolCategoryId": 1,
+    "description": "Euro vs Swiss Franc",
+    "sortingNumber": 1450
+  },
+  {
+    "symbolId": 1024,
+    "symbolName": "EURCZK",
+    "enabled": false,
+    "baseAssetId": 5,
+    "quoteAssetId": 21,
+    "symbolCategoryId": 1,
+    "description": "Euro vs Czech Koruna",
+    "sortingNumber": 1456
+  },
+  {
+    "symbolId": 1003,
+    "symbolName": "EURDKK",
+    "enabled": true,
+    "baseAssetId": 5,
+    "quoteAssetId": 4,
+    "symbolCategoryId": 1,
+    "description": "Euro vs Danish Krone",
+    "sortingNumber": 1462
+  },
+  {
+    "symbolId": 1004,
+    "symbolName": "EURHKD",
+    "enabled": true,
+    "baseAssetId": 5,
+    "quoteAssetId": 7,
+    "symbolCategoryId": 1,
+    "description": "Euro vs Hong Kong Dollar",
+    "sortingNumber": 1493
+  },
+  {
+    "symbolId": 34,
+    "symbolName": "EURHUF",
+    "enabled": false,
+    "baseAssetId": 5,
+    "quoteAssetId": 8,
+    "symbolCategoryId": 1,
+    "description": "Euro vs Hungarian Forint",
+    "sortingNumber": 1496
+  },
+  {
+    "symbolId": 9,
+    "symbolName": "EURGBP",
+    "enabled": true,
+    "baseAssetId": 5,
+    "quoteAssetId": 6,
+    "symbolCategoryId": 1,
+    "description": "Euro vs British Pound",
+    "sortingNumber": 1498
+  },
+  {
+    "symbolId": 3,
+    "symbolName": "EURJPY",
+    "enabled": true,
+    "baseAssetId": 5,
+    "quoteAssetId": 9,
+    "symbolCategoryId": 1,
+    "description": "Euro vs Japanese Yen",
+    "sortingNumber": 1500
+  },
+  {
+    "symbolId": 1022,
+    "symbolName": "EURMXN",
+    "enabled": false,
+    "baseAssetId": 5,
+    "quoteAssetId": 10,
+    "symbolCategoryId": 1,
+    "description": "Euro vs Mexican Peso",
+    "sortingNumber": 1525
+  },
+  {
+    "symbolId": 33,
+    "symbolName": "EURNOK",
+    "enabled": true,
+    "baseAssetId": 5,
+    "quoteAssetId": 11,
+    "symbolCategoryId": 1,
+    "description": "Euro vs Norwegian Krone",
+    "sortingNumber": 1550
+  },
+  {
+    "symbolId": 26,
+    "symbolName": "EURNZD",
+    "enabled": true,
+    "baseAssetId": 5,
+    "quoteAssetId": 12,
+    "symbolCategoryId": 1,
+    "description": "Euro vs New Zealand Dollar",
+    "sortingNumber": 1575
+  },
+  {
+    "symbolId": 1005,
+    "symbolName": "EURPLN",
+    "enabled": true,
+    "baseAssetId": 5,
+    "quoteAssetId": 13,
+    "symbolCategoryId": 1,
+    "description": "Euro vs Polish Zloty",
+    "sortingNumber": 1584
+  },
+  {
+    "symbolId": 1023,
+    "symbolName": "EURRUB",
+    "enabled": false,
+    "baseAssetId": 5,
+    "quoteAssetId": 22,
+    "symbolCategoryId": 1,
+    "description": "Euro vs Russian Ruble",
+    "sortingNumber": 1593
+  },
+  {
+    "symbolId": 31,
+    "symbolName": "EURSEK",
+    "enabled": true,
+    "baseAssetId": 5,
+    "quoteAssetId": 14,
+    "symbolCategoryId": 1,
+    "description": "Euro vs Swedish Krona",
+    "sortingNumber": 1596
+  },
+  {
+    "symbolId": 1006,
+    "symbolName": "EURSGD",
+    "enabled": true,
+    "baseAssetId": 5,
+    "quoteAssetId": 15,
+    "symbolCategoryId": 1,
+    "description": "Euro vs Singapore Dollar",
+    "sortingNumber": 1597
+  },
+  {
+    "symbolId": 1007,
+    "symbolName": "EURTRY",
+    "enabled": true,
+    "baseAssetId": 5,
+    "quoteAssetId": 19,
+    "symbolCategoryId": 1,
+    "description": "Euro vs Turkish Lira",
+    "sortingNumber": 1597
+  },
+  {
+    "symbolId": 1008,
+    "symbolName": "EURZAR",
+    "enabled": true,
+    "baseAssetId": 5,
+    "quoteAssetId": 20,
+    "symbolCategoryId": 1,
+    "description": "Euro vs South African Rand",
+    "sortingNumber": 1598
+  },
+  {
+    "symbolId": 16,
+    "symbolName": "GBPAUD",
+    "enabled": true,
+    "baseAssetId": 6,
+    "quoteAssetId": 1,
+    "symbolCategoryId": 1,
+    "description": "British Pound vs Australian Dollar",
+    "sortingNumber": 1600
+  },
+  {
+    "symbolId": 19,
+    "symbolName": "GBPCAD",
+    "enabled": true,
+    "baseAssetId": 6,
+    "quoteAssetId": 2,
+    "symbolCategoryId": 1,
+    "description": "British Pound vs Canadian Dollar",
+    "sortingNumber": 1900
+  },
+  {
+    "symbolId": 40,
+    "symbolName": "GBPCHF",
+    "enabled": true,
+    "baseAssetId": 6,
+    "quoteAssetId": 3,
+    "symbolCategoryId": 1,
+    "description": "British Pound vs Swiss Franc",
+    "sortingNumber": 2050
+  },
+  {
+    "symbolId": 7,
+    "symbolName": "GBPJPY",
+    "enabled": true,
+    "baseAssetId": 6,
+    "quoteAssetId": 9,
+    "symbolCategoryId": 1,
+    "description": "British Pound vs Japanese Yen",
+    "sortingNumber": 2200
+  },
+  {
+    "symbolId": 37,
+    "symbolName": "GBPNOK",
+    "enabled": true,
+    "baseAssetId": 6,
+    "quoteAssetId": 11,
+    "symbolCategoryId": 1,
+    "description": "British Pound vs Norwegian Krone",
+    "sortingNumber": 2350
+  },
+  {
+    "symbolId": 25,
+    "symbolName": "GBPNZD",
+    "enabled": true,
+    "baseAssetId": 6,
+    "quoteAssetId": 12,
+    "symbolCategoryId": 1,
+    "description": "British Pound vs New Zealand Dollar ",
+    "sortingNumber": 2500
+  },
+  {
+    "symbolId": 32,
+    "symbolName": "GBPSGD",
+    "enabled": true,
+    "baseAssetId": 6,
+    "quoteAssetId": 15,
+    "symbolCategoryId": 1,
+    "description": "Great Britain Pound vs Singapore Dollar",
+    "sortingNumber": 3200
+  },
+  {
+    "symbolId": 1021,
+    "symbolName": "GBPZAR",
+    "enabled": false,
+    "baseAssetId": 6,
+    "quoteAssetId": 20,
+    "symbolCategoryId": 1,
+    "description": "British Pound vs South African rand",
+    "sortingNumber": 3750
+  },
+  {
+    "symbolId": 10000,
+    "symbolName": "AUS200",
+    "enabled": true,
+    "baseAssetId": 25,
+    "quoteAssetId": 1,
+    "symbolCategoryId": 3,
+    "description": "Australian S&P/ASX 200 Index",
+    "sortingNumber": 10099
+  },
+  {
+    "symbolId": 10001,
+    "symbolName": "STOXX50",
+    "enabled": true,
+    "baseAssetId": 26,
+    "quoteAssetId": 5,
+    "symbolCategoryId": 3,
+    "description": "EURO STOXX 50 Index",
+    "sortingNumber": 10100
+  },
+  {
+    "symbolId": 10002,
+    "symbolName": "F40",
+    "enabled": true,
+    "baseAssetId": 27,
+    "quoteAssetId": 5,
+    "symbolCategoryId": 3,
+    "description": "French CAC 40 Index",
+    "sortingNumber": 10101
+  },
+  {
+    "symbolId": 10003,
+    "symbolName": "DE30",
+    "enabled": true,
+    "baseAssetId": 28,
+    "quoteAssetId": 5,
+    "symbolCategoryId": 3,
+    "description": "German DAX 30 Index",
+    "sortingNumber": 10102
+  },
+  {
+    "symbolId": 10004,
+    "symbolName": "HK50",
+    "enabled": true,
+    "baseAssetId": 29,
+    "quoteAssetId": 7,
+    "symbolCategoryId": 3,
+    "description": "Chinese Hang Seng 50 Index",
+    "sortingNumber": 10103
+  },
+  {
+    "symbolId": 10005,
+    "symbolName": "IT40",
+    "enabled": true,
+    "baseAssetId": 30,
+    "quoteAssetId": 5,
+    "symbolCategoryId": 3,
+    "description": "Italian FTSE MIB Index",
+    "sortingNumber": 10104
+  },
+  {
+    "symbolId": 10006,
+    "symbolName": "JP225",
+    "enabled": true,
+    "baseAssetId": 31,
+    "quoteAssetId": 9,
+    "symbolCategoryId": 3,
+    "description": "Japan Nikkei 225 Index",
+    "sortingNumber": 10105
+  },
+  {
+    "symbolId": 10007,
+    "symbolName": "AEX",
+    "enabled": false,
+    "baseAssetId": 32,
+    "quoteAssetId": 5,
+    "symbolCategoryId": 3,
+    "description": "Netherlandish AEX 25 Index",
+    "sortingNumber": 10106
+  },
+  {
+    "symbolId": 10008,
+    "symbolName": "WIG20",
+    "enabled": false,
+    "baseAssetId": 33,
+    "quoteAssetId": 13,
+    "symbolCategoryId": 3,
+    "description": "Poland WIG20 Index",
+    "sortingNumber": 10107
+  },
+  {
+    "symbolId": 10009,
+    "symbolName": "ES35",
+    "enabled": true,
+    "baseAssetId": 34,
+    "quoteAssetId": 5,
+    "symbolCategoryId": 3,
+    "description": "Spanish IBEX 35 Index",
+    "sortingNumber": 10108
+  },
+  {
+    "symbolId": 10010,
+    "symbolName": "SMI",
+    "enabled": false,
+    "baseAssetId": 35,
+    "quoteAssetId": 3,
+    "symbolCategoryId": 3,
+    "description": "Swiss Market Index",
+    "sortingNumber": 10109
+  },
+  {
+    "symbolId": 10011,
+    "symbolName": "UK100",
+    "enabled": true,
+    "baseAssetId": 36,
+    "quoteAssetId": 6,
+    "symbolCategoryId": 3,
+    "description": "UK 100 Index",
+    "sortingNumber": 10110
+  },
+  {
+    "symbolId": 10012,
+    "symbolName": "US2000",
+    "enabled": true,
+    "baseAssetId": 37,
+    "quoteAssetId": 16,
+    "symbolCategoryId": 3,
+    "description": "USA Russell 2000 Index",
+    "sortingNumber": 10111
+  },
+  {
+    "symbolId": 10013,
+    "symbolName": "US500",
+    "enabled": true,
+    "baseAssetId": 38,
+    "quoteAssetId": 16,
+    "symbolCategoryId": 3,
+    "description": "USA S&P 500 Index",
+    "sortingNumber": 10112
+  },
+  {
+    "symbolId": 10014,
+    "symbolName": "USTEC",
+    "enabled": true,
+    "baseAssetId": 39,
+    "quoteAssetId": 16,
+    "symbolCategoryId": 3,
+    "description": "USA NASDAQ 100 Index",
+    "sortingNumber": 10113
+  },
+  {
+    "symbolId": 10015,
+    "symbolName": "US30",
+    "enabled": true,
+    "baseAssetId": 40,
+    "quoteAssetId": 16,
+    "symbolCategoryId": 3,
+    "description": "USA Dow Jones IA Index",
+    "sortingNumber": 10114
+  },
+  {
+    "symbolId": 1009,
+    "symbolName": "GBPDKK",
+    "enabled": true,
+    "baseAssetId": 6,
+    "quoteAssetId": 4,
+    "symbolCategoryId": 1,
+    "description": "British Pound vs Danish Krone",
+    "sortingNumber": 100900
+  },
+  {
+    "symbolId": 1010,
+    "symbolName": "GBPSEK",
+    "enabled": true,
+    "baseAssetId": 6,
+    "quoteAssetId": 14,
+    "symbolCategoryId": 1,
+    "description": "British Pound vs Swedish Krona",
+    "sortingNumber": 101000
+  },
+  {
+    "symbolId": 1014,
+    "symbolName": "NOKJPY",
+    "enabled": true,
+    "baseAssetId": 11,
+    "quoteAssetId": 9,
+    "symbolCategoryId": 1,
+    "description": "Norwegian Krone vs Japanese Yen",
+    "sortingNumber": 101075
+  },
+  {
+    "symbolId": 1011,
+    "symbolName": "NOKSEK",
+    "enabled": true,
+    "baseAssetId": 11,
+    "quoteAssetId": 14,
+    "symbolCategoryId": 1,
+    "description": "Norwegian Krone vs Swedish Krona",
+    "sortingNumber": 101100
+  },
+  {
+    "symbolId": 30,
+    "symbolName": "NZDCAD",
+    "enabled": true,
+    "baseAssetId": 12,
+    "quoteAssetId": 2,
+    "symbolCategoryId": 1,
+    "description": "New Zealand Dollar vs Canadian Dollar",
+    "sortingNumber": 101125
+  },
+  {
+    "symbolId": 39,
+    "symbolName": "NZDCHF",
+    "enabled": true,
+    "baseAssetId": 12,
+    "quoteAssetId": 3,
+    "symbolCategoryId": 1,
+    "description": "New Zealand Dollar vs Swiss Franc",
+    "sortingNumber": 101150
+  },
+  {
+    "symbolId": 21,
+    "symbolName": "NZDJPY",
+    "enabled": true,
+    "baseAssetId": 12,
+    "quoteAssetId": 9,
+    "symbolCategoryId": 1,
+    "description": "New Zealand Dollar vs Japanese Yen",
+    "sortingNumber": 101200
+  },
+  {
+    "symbolId": 1025,
+    "symbolName": "NZDSGD",
+    "enabled": false,
+    "baseAssetId": 12,
+    "quoteAssetId": 15,
+    "symbolCategoryId": 1,
+    "description": "New Zealand Dollar vs Singapore Dollar",
+    "sortingNumber": 101250
+  },
+  {
+    "symbolId": 12,
+    "symbolName": "NZDUSD",
+    "enabled": true,
+    "baseAssetId": 12,
+    "quoteAssetId": 16,
+    "symbolCategoryId": 1,
+    "description": "New Zealand Dollar vs US Dollar",
+    "sortingNumber": 101375
+  },
+  {
+    "symbolId": 1015,
+    "symbolName": "SEKJPY",
+    "enabled": true,
+    "baseAssetId": 14,
+    "quoteAssetId": 9,
+    "symbolCategoryId": 1,
+    "description": "Swedish Krona vs Japanese Yen",
+    "sortingNumber": 101500
+  },
+  {
+    "symbolId": 1016,
+    "symbolName": "SGDJPY",
+    "enabled": true,
+    "baseAssetId": 15,
+    "quoteAssetId": 9,
+    "symbolCategoryId": 1,
+    "description": "Singapore Dollar vs Japanese Yen",
+    "sortingNumber": 101600
+  },
+  {
+    "symbolId": 1020,
+    "symbolName": "USDCNH",
+    "enabled": true,
+    "baseAssetId": 16,
+    "quoteAssetId": 23,
+    "symbolCategoryId": 1,
+    "description": "US Dollar vs China Offshore Spot",
+    "sortingNumber": 102525
+  },
+  {
+    "symbolId": 1018,
+    "symbolName": "USDCZK",
+    "enabled": true,
+    "baseAssetId": 16,
+    "quoteAssetId": 21,
+    "symbolCategoryId": 1,
+    "description": "US Dollar vs Czech Koruna",
+    "sortingNumber": 102531
+  },
+  {
+    "symbolId": 36,
+    "symbolName": "USDDKK",
+    "enabled": true,
+    "baseAssetId": 16,
+    "quoteAssetId": 4,
+    "symbolCategoryId": 1,
+    "description": "US Dollar vs Danish Krone",
+    "sortingNumber": 102534
+  },
+  {
+    "symbolId": 1000,
+    "symbolName": "USDHKD",
+    "enabled": true,
+    "baseAssetId": 16,
+    "quoteAssetId": 7,
+    "symbolCategoryId": 1,
+    "description": "US Dollar vs Hong Kong dollar",
+    "sortingNumber": 102535
+  },
+  {
+    "symbolId": 1017,
+    "symbolName": "USDHUF",
+    "enabled": true,
+    "baseAssetId": 16,
+    "quoteAssetId": 8,
+    "symbolCategoryId": 1,
+    "description": "US Dollar vs Hungarian Forint",
+    "sortingNumber": 102537
+  },
+  {
+    "symbolId": 24,
+    "symbolName": "USDMXN",
+    "enabled": true,
+    "baseAssetId": 16,
+    "quoteAssetId": 10,
+    "symbolCategoryId": 1,
+    "description": "US Dollar vs Mexican Peso",
+    "sortingNumber": 102543
+  },
+  {
+    "symbolId": 22,
+    "symbolName": "USDNOK",
+    "enabled": true,
+    "baseAssetId": 16,
+    "quoteAssetId": 11,
+    "symbolCategoryId": 1,
+    "description": "US Dollar vs Norwegian Krone",
+    "sortingNumber": 102544
+  },
+  {
+    "symbolId": 35,
+    "symbolName": "USDPLN",
+    "enabled": true,
+    "baseAssetId": 16,
+    "quoteAssetId": 13,
+    "symbolCategoryId": 1,
+    "description": "US Dollar vs Polish Zloty",
+    "sortingNumber": 102546
+  },
+  {
+    "symbolId": 1019,
+    "symbolName": "USDRUB",
+    "enabled": true,
+    "baseAssetId": 16,
+    "quoteAssetId": 22,
+    "symbolCategoryId": 1,
+    "description": "US Dollar vs Russian Ruble",
+    "sortingNumber": 102550
+  },
+  {
+    "symbolId": 29,
+    "symbolName": "USDSEK",
+    "enabled": true,
+    "baseAssetId": 16,
+    "quoteAssetId": 14,
+    "symbolCategoryId": 1,
+    "description": "US Dollar vs Swedish Krona",
+    "sortingNumber": 102562
+  },
+  {
+    "symbolId": 28,
+    "symbolName": "USDSGD",
+    "enabled": true,
+    "baseAssetId": 16,
+    "quoteAssetId": 15,
+    "symbolCategoryId": 1,
+    "description": "US Dollar vs Singapore Dollar",
+    "sortingNumber": 102575
+  },
+  {
+    "symbolId": 1026,
+    "symbolName": "USDTHB",
+    "enabled": true,
+    "baseAssetId": 16,
+    "quoteAssetId": 24,
+    "symbolCategoryId": 1,
+    "description": "US Dollar vs Thai Bhat",
+    "sortingNumber": 102600
+  },
+  {
+    "symbolId": 1012,
+    "symbolName": "USDTRY",
+    "enabled": true,
+    "baseAssetId": 16,
+    "quoteAssetId": 19,
+    "symbolCategoryId": 1,
+    "description": "US Dollar vs Turkish Lira",
+    "sortingNumber": 103600
+  },
+  {
+    "symbolId": 1013,
+    "symbolName": "USDZAR",
+    "enabled": true,
+    "baseAssetId": 16,
+    "quoteAssetId": 20,
+    "symbolCategoryId": 1,
+    "description": "US Dollar vs South African Rand",
+    "sortingNumber": 104600
+  },
+  {
+    "symbolId": 10021,
+    "symbolName": "BRENT",
+    "enabled": false,
+    "baseAssetId": 46,
+    "quoteAssetId": 16,
+    "symbolCategoryId": 4,
+    "description": "Brent Crude Oil",
+    "sortingNumber": 1002100
+  },
+  {
+    "symbolId": 10022,
+    "symbolName": "WTI",
+    "enabled": false,
+    "baseAssetId": 47,
+    "quoteAssetId": 16,
+    "symbolCategoryId": 4,
+    "description": "WTI Light Crude Oil",
+    "sortingNumber": 1002100
+  },
+  {
+    "symbolId": 10018,
+    "symbolName": "XBRUSD",
+    "enabled": true,
+    "baseAssetId": 43,
+    "quoteAssetId": 16,
+    "symbolCategoryId": 4,
+    "description": "Brent Crude Oil",
+    "sortingNumber": 1002101
+  },
+  {
+    "symbolId": 10019,
+    "symbolName": "XTIUSD",
+    "enabled": true,
+    "baseAssetId": 44,
+    "quoteAssetId": 16,
+    "symbolCategoryId": 4,
+    "description": "WTI Light Crude Oil",
+    "sortingNumber": 1002102
+  },
+  {
+    "symbolId": 10023,
+    "symbolName": "EURUSDt",
+    "enabled": false,
+    "baseAssetId": 48,
+    "quoteAssetId": 16,
+    "symbolCategoryId": 1,
+    "description": "Euro vs US Dollar",
+    "sortingNumber": 1002300
+  },
+  {
+    "symbolId": 10024,
+    "symbolName": "DE30t",
+    "enabled": false,
+    "baseAssetId": 49,
+    "quoteAssetId": 5,
+    "symbolCategoryId": 3,
+    "description": "German DAX 30 Index",
+    "sortingNumber": 1002400
+  },
+  {
+    "symbolId": 10025,
+    "symbolName": "CHINA50",
+    "enabled": true,
+    "baseAssetId": 55,
+    "quoteAssetId": 16,
+    "symbolCategoryId": 3,
+    "description": "FTSE China A50 Index",
+    "sortingNumber": 1002500
+  },
+  {
+    "symbolId": 10026,
+    "symbolName": "BTCUSD",
+    "enabled": true,
+    "baseAssetId": 50,
+    "quoteAssetId": 16,
+    "symbolCategoryId": 8,
+    "description": "Bitcoin",
+    "sortingNumber": 1002600
+  },
+  {
+    "symbolId": 10027,
+    "symbolName": "DSHUSD",
+    "enabled": true,
+    "baseAssetId": 51,
+    "quoteAssetId": 16,
+    "symbolCategoryId": 8,
+    "description": "Dashcoin US Dollar",
+    "sortingNumber": 1002700
+  },
+  {
+    "symbolId": 10028,
+    "symbolName": "BCHUSD",
+    "enabled": true,
+    "baseAssetId": 52,
+    "quoteAssetId": 16,
+    "symbolCategoryId": 8,
+    "description": "Bitcoin Cash US Dollar",
+    "sortingNumber": 1002800
+  },
+  {
+    "symbolId": 10029,
+    "symbolName": "ETHUSD",
+    "enabled": true,
+    "baseAssetId": 53,
+    "quoteAssetId": 16,
+    "symbolCategoryId": 8,
+    "description": "Etherimum US Dollar",
+    "sortingNumber": 1002900
+  },
+  {
+    "symbolId": 10030,
+    "symbolName": "LTCUSD",
+    "enabled": true,
+    "baseAssetId": 54,
+    "quoteAssetId": 16,
+    "symbolCategoryId": 8,
+    "description": "Litecoin US Dollar",
+    "sortingNumber": 1003000
+  },
+  {
+    "symbolId": 10031,
+    "symbolName": "GBPTRY",
+    "enabled": true,
+    "baseAssetId": 6,
+    "quoteAssetId": 19,
+    "symbolCategoryId": 1,
+    "description": "Great Britain Pound vs Turkish Lira",
+    "sortingNumber": 1003100
+  },
+  {
+    "symbolId": 10033,
+    "symbolName": "CA60",
+    "enabled": true,
+    "baseAssetId": 56,
+    "quoteAssetId": 2,
+    "symbolCategoryId": 3,
+    "description": "Canada 60 Index",
+    "sortingNumber": 1003300
+  },
+  {
+    "symbolId": 10034,
+    "symbolName": "TecDE30",
+    "enabled": true,
+    "baseAssetId": 57,
+    "quoteAssetId": 5,
+    "symbolCategoryId": 3,
+    "description": "Germany Tech 30 Index",
+    "sortingNumber": 1003400
+  },
+  {
+    "symbolId": 10035,
+    "symbolName": "MidDE60",
+    "enabled": true,
+    "baseAssetId": 58,
+    "quoteAssetId": 5,
+    "symbolCategoryId": 3,
+    "description": "Germany Mid 60 Index",
+    "sortingNumber": 1003500
+  },
+  {
+    "symbolId": 10036,
+    "symbolName": "NETH25",
+    "enabled": true,
+    "baseAssetId": 59,
+    "quoteAssetId": 5,
+    "symbolCategoryId": 3,
+    "description": "Netherlands 25 Index",
+    "sortingNumber": 1003600
+  },
+  {
+    "symbolId": 10037,
+    "symbolName": "SWI20",
+    "enabled": true,
+    "baseAssetId": 60,
+    "quoteAssetId": 3,
+    "symbolCategoryId": 3,
+    "description": "Switzerland 20 Index",
+    "sortingNumber": 1003700
+  },
+  {
+    "symbolId": 10038,
+    "symbolName": "SG30",
+    "enabled": false,
+    "baseAssetId": 61,
+    "quoteAssetId": 15,
+    "symbolCategoryId": 3,
+    "description": "Singpore 30 Index",
+    "sortingNumber": 1003800
+  },
+  {
+    "symbolId": 10039,
+    "symbolName": "CHINAH",
+    "enabled": true,
+    "baseAssetId": 62,
+    "quoteAssetId": 7,
+    "symbolCategoryId": 3,
+    "description": "Hong Kong China H-shares Index",
+    "sortingNumber": 1003900
+  },
+  {
+    "symbolId": 10040,
+    "symbolName": "NOR25",
+    "enabled": true,
+    "baseAssetId": 63,
+    "quoteAssetId": 11,
+    "symbolCategoryId": 3,
+    "description": "Norway 25 Index",
+    "sortingNumber": 1004000
+  },
+  {
+    "symbolId": 10041,
+    "symbolName": "SA40",
+    "enabled": true,
+    "baseAssetId": 64,
+    "quoteAssetId": 20,
+    "symbolCategoryId": 3,
+    "description": "South Africa 40 Index",
+    "sortingNumber": 1004100
+  },
+  {
+    "symbolId": 10042,
+    "symbolName": "SE30",
+    "enabled": true,
+    "baseAssetId": 65,
+    "quoteAssetId": 14,
+    "symbolCategoryId": 3,
+    "description": "Sweden 30 Index",
+    "sortingNumber": 1004200
+  },
+  {
+    "symbolId": 10043,
+    "symbolName": "USCrude100",
+    "enabled": false,
+    "baseAssetId": 66,
+    "quoteAssetId": 16,
+    "symbolCategoryId": 4,
+    "description": "XTIUSD $100 Rebased",
+    "sortingNumber": 1004300
+  },
+  {
+    "symbolId": 10044,
+    "symbolName": "UKBrent100",
+    "enabled": false,
+    "baseAssetId": 67,
+    "quoteAssetId": 16,
+    "symbolCategoryId": 4,
+    "description": "XBRUSD $100 Rebased",
+    "sortingNumber": 1004400
+  },
+  {
+    "symbolId": 10045,
+    "symbolName": "MidDE50",
+    "enabled": true,
+    "baseAssetId": 68,
+    "quoteAssetId": 5,
+    "symbolCategoryId": 3,
+    "description": "Germany Mid 50 Index",
+    "sortingNumber": 1004500
+  },
+  {
+    "symbolId": 10046,
+    "symbolName": "DE40",
+    "enabled": true,
+    "baseAssetId": 69,
+    "quoteAssetId": 5,
+    "symbolCategoryId": 3,
+    "description": "Germany DAX 40 Index",
+    "sortingNumber": 1004600
+  },
+  {
+    "symbolId": 10047,
+    "symbolName": "XAUCHF",
+    "enabled": true,
+    "baseAssetId": 18,
+    "quoteAssetId": 3,
+    "symbolCategoryId": 2,
+    "description": "Gold vs Swiss Franc",
+    "sortingNumber": 1004700
+  },
+  {
+    "symbolId": 10048,
+    "symbolName": "XAUGBP",
+    "enabled": true,
+    "baseAssetId": 18,
+    "quoteAssetId": 6,
+    "symbolCategoryId": 2,
+    "description": "Gold vs British Pound",
+    "sortingNumber": 1004800
+  },
+  {
+    "symbolId": 10049,
+    "symbolName": "XAUJPY",
+    "enabled": true,
+    "baseAssetId": 18,
+    "quoteAssetId": 9,
+    "symbolCategoryId": 2,
+    "description": "Gold vs Japanese Yen",
+    "sortingNumber": 1004900
+  },
+  {
+    "symbolId": 10050,
+    "symbolName": "XAGAUD",
+    "enabled": true,
+    "baseAssetId": 17,
+    "quoteAssetId": 1,
+    "symbolCategoryId": 2,
+    "description": "Silver vs Australian Dollar",
+    "sortingNumber": 1005000
+  },
+  {
+    "symbolId": 10051,
+    "symbolName": "IN50",
+    "enabled": false,
+    "baseAssetId": 1000,
+    "quoteAssetId": 16,
+    "symbolCategoryId": 3,
+    "description": "India 50 Index",
+    "sortingNumber": 1005001
+  },
+  {
+    "symbolId": 10052,
+    "symbolName": "GCM25",
+    "enabled": true,
+    "baseAssetId": 1001,
+    "quoteAssetId": 16,
+    "symbolCategoryId": 2,
+    "description": "Gold Futures - June25",
+    "sortingNumber": 1005002
+  },
+  {
+    "symbolId": 10053,
+    "symbolName": "GCN25",
+    "enabled": false,
+    "baseAssetId": 1002,
+    "quoteAssetId": 16,
+    "symbolCategoryId": 2,
+    "description": "Gold Futures - July25",
+    "sortingNumber": 1005003
+  },
+  {
+    "symbolId": 10054,
+    "symbolName": "GCQ25",
+    "enabled": false,
+    "baseAssetId": 1003,
+    "quoteAssetId": 16,
+    "symbolCategoryId": 2,
+    "description": "Gold Futures - August25",
+    "sortingNumber": 1005004
+  },
+  {
+    "symbolId": 10055,
+    "symbolName": "GCU25",
+    "enabled": false,
+    "baseAssetId": 1004,
+    "quoteAssetId": 16,
+    "symbolCategoryId": 2,
+    "description": "Gold Futures - September25",
+    "sortingNumber": 1005005
+  },
+  {
+    "symbolId": 10056,
+    "symbolName": "GCV25",
+    "enabled": false,
+    "baseAssetId": 1005,
+    "quoteAssetId": 16,
+    "symbolCategoryId": 2,
+    "description": "Gold Futures - October25",
+    "sortingNumber": 1005006
+  },
+  {
+    "symbolId": 10057,
+    "symbolName": "GCX25",
+    "enabled": false,
+    "baseAssetId": 1006,
+    "quoteAssetId": 16,
+    "symbolCategoryId": 2,
+    "description": "Gold Futures - November25",
+    "sortingNumber": 1005007
+  },
+  {
+    "symbolId": 10058,
+    "symbolName": "GCZ25",
+    "enabled": false,
+    "baseAssetId": 1007,
+    "quoteAssetId": 16,
+    "symbolCategoryId": 2,
+    "description": "Gold Futures - December25",
+    "sortingNumber": 1005008
+  }
+]

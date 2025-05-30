@@ -91,7 +91,6 @@ class TelegramBotManager {
     }
 
     // Always start fresh in production to avoid session conflicts
-    let sessionString = process.env.SESSION_STRING || "";
 
     // Only use existing session if explicitly provided and not in production
     // if (!isProduction && process.env.SESSION_STRING) {
@@ -101,7 +100,9 @@ class TelegramBotManager {
     //   console.log("🆕 Starting with fresh session");
     // }
 
-    this.sessionString = new StringSession(sessionString);
+    this.sessionString = new StringSession(process.env.SESSION_STRING || "");
+
+    console.log(this.sessionString, "Session string saved in config");
 
     this.client = new TelegramClient(this.sessionString, apiId, apiHash, {
       connectionRetries: 3,

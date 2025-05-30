@@ -100,9 +100,9 @@ class TelegramBotManager {
     //   console.log("🆕 Starting with fresh session");
     // }
 
-    this.sessionString = new StringSession(process.env.SESSION_STRING || "");
+    console.log(process.env.SESSION_STRING, "Session string saved in config");
 
-    console.log(this.sessionString, "Session string saved in config");
+    this.sessionString = new StringSession(process.env.SESSION_STRING || "");
 
     this.client = new TelegramClient(this.sessionString, apiId, apiHash, {
       connectionRetries: 3,

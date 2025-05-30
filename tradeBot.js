@@ -91,12 +91,12 @@ class TradeBot {
             this.getSymbols();
 
             resolve();
-            // if (!this.heartbeatIntervalId) {
-            //   this.heartbeatIntervalId = setInterval(
-            //     () => this.sendHeartbeat(),
-            //     HEARTBEAT_INTERVAL
-            //   );
-            // }
+            if (!this.heartbeatIntervalId) {
+              this.heartbeatIntervalId = setInterval(
+                () => this.sendHeartbeat(),
+                HEARTBEAT_INTERVAL
+              );
+            }
           } else if (payloadType === payloadTypes.PROTO_OA_ERROR_RES) {
             console.error("❌ API Error:", serverMsg.payload);
           } else if (payloadType === PROTO_HEARTBEAT_EVENT_PAYLOADTYPE) {
@@ -156,21 +156,21 @@ class TradeBot {
     });
   }
 
-  // sendHeartbeat() {
-  //   const clientMsg = {
-  //     clientMsgId: uid(),
-  //     payloadType: PROTO_HEARTBEAT_EVENT_PAYLOADTYPE,
-  //     payload: {},
-  //   };
+  sendHeartbeat() {
+    const clientMsg = {
+      clientMsgId: uid(),
+      payloadType: PROTO_HEARTBEAT_EVENT_PAYLOADTYPE,
+      payload: {},
+    };
 
-  //   try {
-  //     this.ws.send(JSON.stringify(clientMsg));
-  //     console.log("🔁 Heartbeat sent");
-  //   } catch (err) {
-  //     console.error("❌ Error sending heartbeat:", err.message);
-  //     this.scheduleReconnect();
-  //   }
-  // }
+    try {
+      this.ws.send(JSON.stringify(clientMsg));
+      console.log("🔁 Heartbeat sent");
+    } catch (err) {
+      console.error("❌ Error sending heartbeat:", err.message);
+      this.scheduleReconnect();
+    }
+  }
 
   getSymbols() {
     this.accountIds.forEach((accountId) => {

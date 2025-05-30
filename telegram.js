@@ -289,44 +289,6 @@ class TelegramBotManager {
     console.log("✅ Event handlers setup complete");
   }
 
-  // startKeepAlive() {
-  //   // Keep connection alive with periodic pings
-  //   this.keepAliveInterval = setInterval(async () => {
-  //     try {
-  //       if (this.client && this.client.connected) {
-  //         await this.client.invoke(
-  //           new Api.Ping({
-  //             pingId: BigInt(Date.now()),
-  //           })
-  //         );
-  //         console.log("💓 Keep-alive ping sent");
-  //       }
-  //     } catch (error) {
-  //       console.error("Keep-alive ping failed:", error);
-  //       if (!this.isReconnecting) {
-  //         await this.handleReconnection();
-  //       }
-  //     }
-  //   }, 60000); // Every 60 seconds
-
-  //   // Health check - more frequent
-  //   this.healthCheckInterval = setInterval(async () => {
-  //     try {
-  //       if (this.client && this.client.connected) {
-  //         await this.client.getMe();
-  //         console.log("🏥 Health check passed");
-  //       }
-  //     } catch (error) {
-  //       console.error("Health check failed:", error);
-  //       if (!this.isReconnecting) {
-  //         await this.handleReconnection();
-  //       }
-  //     }
-  //   }, 30000); // Every 30 seconds
-
-  //   console.log("✅ Keep-alive system started");
-  // }
-
   async handleReconnection() {
     if (this.isReconnecting) {
       console.log("⏳ Reconnection already in progress...");

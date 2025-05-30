@@ -91,18 +91,15 @@ class TelegramBotManager {
     }
 
     // Always start fresh in production to avoid session conflicts
-    let sessionString = "";
+    let sessionString = process.env.SESSION_STRING || "";
 
     // Only use existing session if explicitly provided and not in production
-    if (!isProduction && process.env.SESSION_STRING) {
-      sessionString = process.env.SESSION_STRING;
-      console.log("🔑 Using existing session for local development");
-    } else {
-      console.log("🆕 Starting with fresh session");
-    }
-
-    console.log(`🌍 Environment: ${isProduction ? "Production" : "Local"}`);
-    console.log(`🆔 Deployment ID: ${deploymentId}`);
+    // if (!isProduction && process.env.SESSION_STRING) {
+    //
+    //   console.log("🔑 Using existing session for local development");
+    // } else {
+    //   console.log("🆕 Starting with fresh session");
+    // }
 
     this.sessionString = new StringSession(sessionString);
 

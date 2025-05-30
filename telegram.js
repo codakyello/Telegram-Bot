@@ -99,7 +99,7 @@ class TelegramBotManager {
     console.log(`🌍 Environment: ${isProduction ? "Production" : "Local"}`);
     console.log(`🆔 Deployment ID: ${deploymentId}`);
 
-    this.sessionString = new StringSession("");
+    this.sessionString = new StringSession(sessionString);
 
     this.client = new TelegramClient(this.sessionString, apiId, apiHash, {
       connectionRetries: 5,

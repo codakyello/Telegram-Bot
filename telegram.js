@@ -86,14 +86,19 @@ class TelegramBotManager {
     const apiId = Number(process.env.API_ID);
     const apiHash = process.env.API_HASH;
 
-    // Generate unique session string for production deployments
-    let sessionString = process.env.SESSION_STRING || "";
+    if (!apiId || !apiHash) {
+      throw new Error("API_ID and API_HASH are required");
+    }
 
-    if (isProduction && !sessionString) {
-      console.log(
-        "🔑 Production deployment detected, generating new session..."
-      );
-      sessionString = ""; // Force new session creation
+    // Always start fresh in production to avoid session conflicts
+    let sessionString = "";
+
+    // Only use existing session if explicitly provided and not in production
+    if (!isProduction && process.env.SESSION_STRING) {
+      sessionString = process.env.SESSION_STRING;
+      console.log("🔑 Using existing session for local development");
+    } else {
+      console.log("🆕 Starting with fresh session");
     }
 
     console.log(`🌍 Environment: ${isProduction ? "Production" : "Local"}`);
@@ -102,15 +107,16 @@ class TelegramBotManager {
     this.sessionString = new StringSession(sessionString);
 
     this.client = new TelegramClient(this.sessionString, apiId, apiHash, {
-      connectionRetries: 5,
-      retryDelay: 2000,
-      autoReconnect: true,
-      timeout: 30,
+      connectionRetries: 3,
+      retryDelay: 3000,
+      autoReconnect: false, // Disable auto-reconnect to handle manually
+      timeout: 60,
       useIPV6: false,
+      floodSleepThreshold: 60,
       // Add device model to distinguish sessions
       deviceModel: `TradingBot-${deploymentId}`,
-      systemVersion: "1.0.0",
-      appVersion: "1.0.0",
+      systemVersion: "2.0.0",
+      appVersion: "2.0.0",
       langCode: "en",
       systemLangCode: "en",
     });
@@ -157,70 +163,85 @@ class TelegramBotManager {
     });
 
     try {
-      // Check if we already have a valid session
-      if (this.sessionString.session) {
-        console.log("🔑 Attempting to use existing session...");
-        try {
-          await this.client.connect();
-          const me = await this.client.getMe();
-          console.log(
-            `✅ Existing session valid for: ${me.firstName} ${
-              me.lastName || ""
-            }`
-          );
-          this.isAuthenticated = true;
-          this.reconnectAttempts = 0;
+      // Always create fresh session to avoid corruption
+      console.log("🔑 Creating fresh authentication session...");
 
-          // Force logout other sessions in production
-          if (isProduction) {
-            await this.forceLogoutExistingSessions();
-          }
-
-          return;
-        } catch (error) {
-          console.log("❌ Existing session invalid, creating new session...");
-          // Clear the invalid session
-          this.sessionString = new StringSession("");
-          this.client = new TelegramClient(
-            this.sessionString,
-            Number(process.env.API_ID),
-            process.env.API_HASH,
-            this.client.apiCredentials
-          );
-        }
-      }
-
-      // Create new session
       await this.client.start({
         phoneNumber: process.env.PHONE_NO,
-        password: () =>
-          new Promise((resolve) =>
-            rl.question("Enter your password: ", (answer) => resolve(answer))
-          ),
-        phoneCode: () =>
-          new Promise((resolve) =>
-            rl.question("Enter your phone code: ", (answer) => resolve(answer))
-          ),
+        password: async () => {
+          return new Promise((resolve) =>
+            rl.question(
+              "Enter your 2FA password (or press Enter if none): ",
+              (answer) => {
+                resolve(answer || undefined);
+              }
+            )
+          );
+        },
+        phoneCode: async () => {
+          return new Promise((resolve) =>
+            rl.question(
+              "Enter the verification code sent to your phone: ",
+              (answer) => resolve(answer)
+            )
+          );
+        },
         onError: (err) => {
           console.error("Authentication error:", err);
-          this.handleConnectionError(err);
+          throw err;
         },
       });
 
-      console.log("✅ Logged in successfully!");
+      console.log("✅ Authentication successful!");
       const newSessionString = this.client.session.save();
-      console.log("📱 New Session String:", newSessionString);
-      console.log("🔐 Save this session string to your environment variables!");
+      console.log("📱 New Session String Generated:");
+      console.log("=".repeat(60));
+      console.log(newSessionString);
+      console.log("=".repeat(60));
+      console.log(
+        "🔐 IMPORTANT: Save this session string to your environment variables!"
+      );
+      console.log("   For production: SESSION_STRING=" + newSessionString);
 
       this.isAuthenticated = true;
       this.reconnectAttempts = 0;
 
-      // Force logout other sessions in production
-      if (isProduction) {
-        await this.forceLogoutExistingSessions();
-      }
+      // Terminate other sessions to prevent conflicts
+      await this.forceLogoutExistingSessions();
     } catch (error) {
       console.error("Failed to authenticate:", error);
+
+      // If auth fails due to session issues, clear and retry once
+      if (error.message && error.message.includes("AUTH")) {
+        console.log(
+          "🔄 Authentication failed, clearing session and retrying..."
+        );
+        this.sessionString = new StringSession("");
+        this.client = new TelegramClient(
+          this.sessionString,
+          Number(process.env.API_ID),
+          process.env.API_HASH,
+          {
+            connectionRetries: 3,
+            retryDelay: 3000,
+            autoReconnect: false,
+            timeout: 60,
+            useIPV6: false,
+            floodSleepThreshold: 60,
+            deviceModel: `TradingBot-${deploymentId}-retry`,
+            systemVersion: "2.0.0",
+            appVersion: "2.0.0",
+            langCode: "en",
+            systemLangCode: "en",
+          }
+        );
+
+        // Don't retry automatically, let user handle it
+        throw new Error(
+          "Authentication failed. Please restart the application with a fresh session."
+        );
+      }
+
       throw error;
     } finally {
       rl.close();
@@ -344,41 +365,41 @@ class TelegramBotManager {
     console.log("✅ Event handlers setup complete");
   }
 
-  // startKeepAlive() {
-  //   this.keepAliveInterval = setInterval(async () => {
-  //     try {
-  //       if (this.client && this.client.connected) {
-  //         await this.client.invoke(
-  //           new Api.Ping({
-  //             pingId: BigInt(Date.now()),
-  //           })
-  //         );
-  //         console.log("💓 Keep-alive ping sent");
-  //       }
-  //     } catch (error) {
-  //       console.error("Keep-alive ping failed:", error);
-  //       if (!this.isReconnecting) {
-  //         await this.handleReconnection();
-  //       }
-  //     }
-  //   }, 60000);
+  startKeepAlive() {
+    this.keepAliveInterval = setInterval(async () => {
+      try {
+        if (this.client && this.client.connected) {
+          await this.client.invoke(
+            new Api.Ping({
+              pingId: BigInt(Date.now()),
+            })
+          );
+          console.log("💓 Keep-alive ping sent");
+        }
+      } catch (error) {
+        console.error("Keep-alive ping failed:", error);
+        if (!this.isReconnecting) {
+          await this.handleReconnection();
+        }
+      }
+    }, 60000);
 
-  //   this.healthCheckInterval = setInterval(async () => {
-  //     try {
-  //       if (this.client && this.client.connected && this.isAuthenticated) {
-  //         await this.client.getMe();
-  //         console.log("🏥 Health check passed");
-  //       }
-  //     } catch (error) {
-  //       console.error("Health check failed:", error);
-  //       if (!this.isReconnecting) {
-  //         await this.handleReconnection();
-  //       }
-  //     }
-  //   }, 30000);
+    this.healthCheckInterval = setInterval(async () => {
+      try {
+        if (this.client && this.client.connected && this.isAuthenticated) {
+          await this.client.getMe();
+          console.log("🏥 Health check passed");
+        }
+      } catch (error) {
+        console.error("Health check failed:", error);
+        if (!this.isReconnecting) {
+          await this.handleReconnection();
+        }
+      }
+    }, 30000);
 
-  //   console.log("✅ Keep-alive system started");
-  // }
+    console.log("✅ Keep-alive system started");
+  }
 
   async handleReconnection() {
     if (this.isReconnecting) {
@@ -387,6 +408,17 @@ class TelegramBotManager {
     }
 
     this.isReconnecting = true;
+    console.log("🔄 Starting reconnection process...");
+
+    // Stop all intervals during reconnection
+    if (this.keepAliveInterval) {
+      clearInterval(this.keepAliveInterval);
+      this.keepAliveInterval = null;
+    }
+    if (this.healthCheckInterval) {
+      clearInterval(this.healthCheckInterval);
+      this.healthCheckInterval = null;
+    }
 
     while (this.reconnectAttempts < this.maxReconnectAttempts) {
       try {
@@ -395,23 +427,45 @@ class TelegramBotManager {
           `🔄 Reconnection attempt ${this.reconnectAttempts}/${this.maxReconnectAttempts}`
         );
 
+        // Completely disconnect and clean up
         try {
-          await this.client.disconnect();
+          if (this.client) {
+            await this.client.disconnect();
+            await new Promise((resolve) => setTimeout(resolve, 2000)); // Wait for clean disconnect
+          }
         } catch (e) {
-          // Ignore disconnect errors
+          console.log("⚠️ Error during disconnect:", e.message);
         }
 
-        await new Promise((resolve) =>
-          setTimeout(resolve, this.reconnectDelay)
-        );
+        // Recreate client with fresh session to avoid corruption
+        console.log("🔄 Creating fresh client instance...");
+        await this.initializeClient();
 
+        // Try to connect
         await this.client.connect();
 
         if (this.client.connected) {
           console.log("✅ Reconnected successfully!");
+
+          // Verify connection with a simple call
+          try {
+            await this.client.getMe();
+            console.log("✅ Connection verified!");
+          } catch (verifyError) {
+            console.log(
+              "❌ Connection verification failed:",
+              verifyError.message
+            );
+            throw verifyError;
+          }
+
           this.reconnectAttempts = 0;
           this.isReconnecting = false;
+
+          // Re-setup channels and restart monitoring
           await this.setupChannels();
+          this.startKeepAlive();
+
           return;
         }
       } catch (error) {
@@ -419,12 +473,35 @@ class TelegramBotManager {
           `❌ Reconnection attempt ${this.reconnectAttempts} failed:`,
           error.message
         );
+
+        // If it's an auth error, don't keep retrying
+        if (
+          error.message &&
+          (error.message.includes("AUTH_KEY_DUPLICATED") ||
+            error.message.includes("SESSION_REVOKED") ||
+            error.message.includes("readUInt32LE"))
+        ) {
+          console.error(
+            "💀 Authentication/Session error detected. Manual intervention required."
+          );
+          break;
+        }
+
+        // Exponential backoff
         this.reconnectDelay = Math.min(this.reconnectDelay * 1.5, 60000);
+        await new Promise((resolve) =>
+          setTimeout(resolve, this.reconnectDelay)
+        );
       }
     }
 
-    console.error("💀 Max reconnection attempts reached. Bot will restart...");
+    console.error(
+      "💀 Max reconnection attempts reached or auth error occurred."
+    );
+    console.error("🔧 Please restart the application with a fresh session.");
     this.isReconnecting = false;
+
+    // Exit process to force restart with fresh session
     setTimeout(() => {
       process.exit(1);
     }, 5000);
@@ -483,7 +560,7 @@ class TelegramBotManager {
       await this.setupChannels();
 
       this.setupEventHandlers();
-      // this.startKeepAlive();
+      this.startKeepAlive();
 
       console.log("✅ Telegram bot started successfully!");
       console.log(

@@ -6,9 +6,7 @@ const readline = require("readline");
 const Signal = require("./models/signalModel");
 const TradeBot = require("./tradeBot");
 const OAModel = require("./OAModel.json");
-// const Symbols = require("./symbols.json");
 const accountSymbols = require("./symbols");
-
 const credentials = require("./credentials");
 
 function isSignal(message) {
@@ -133,6 +131,15 @@ class TelegramBotManager {
       console.log("Session String:", this.client.session.save());
       this.reconnectAttempts = 0;
 
+      setInterval(async () => {
+        try {
+          const pingId = BigInt(Date.now()); // Must be a BigInt
+          await this.client.invoke(new Api.Ping({ pingId }));
+          console.log("Ping sent at", new Date().toISOString());
+        } catch (err) {
+          console.error("Ping failed:", err);
+        }
+      }, 60 * 1000); // Every 60 seconds
       //use to get id of private channels
       // const dialogs = await this.client.getDialogs();
       // for (const dialog of dialogs) {

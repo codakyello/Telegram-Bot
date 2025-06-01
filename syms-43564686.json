@@ -1,0 +1,1932 @@
+[
+  {
+    "symbolId": 18,
+    "symbolName": "AUDCAD",
+    "enabled": true,
+    "baseAssetId": 1,
+    "quoteAssetId": 2,
+    "symbolCategoryId": 10,
+    "description": "Australian Dollar vs Canadian Dollar",
+    "sortingNumber": 0
+  },
+  {
+    "symbolId": 41,
+    "symbolName": "XAUUSD",
+    "enabled": true,
+    "baseAssetId": 20,
+    "quoteAssetId": 18,
+    "symbolCategoryId": 11,
+    "description": "Gold Ounce vs US Dollar",
+    "sortingNumber": 0
+  },
+  {
+    "symbolId": 1100,
+    "symbolName": "#ChinaA50",
+    "enabled": true,
+    "baseAssetId": 31,
+    "quoteAssetId": 18,
+    "symbolCategoryId": 8,
+    "description": "FTSE China A50 Spot Index",
+    "sortingNumber": 0
+  },
+  {
+    "symbolId": 1117,
+    "symbolName": "BRENT",
+    "enabled": true,
+    "baseAssetId": 46,
+    "quoteAssetId": 18,
+    "symbolCategoryId": 4,
+    "description": "Brent (UK) Spot Oil",
+    "sortingNumber": 0
+  },
+  {
+    "symbolId": 1287,
+    "symbolName": "#US30",
+    "enabled": true,
+    "baseAssetId": 213,
+    "quoteAssetId": 18,
+    "symbolCategoryId": 7,
+    "description": "US Dow Jones 30 Spot Index",
+    "sortingNumber": 0
+  },
+  {
+    "symbolId": 1304,
+    "symbolName": "BITCOINCASH",
+    "enabled": true,
+    "baseAssetId": 229,
+    "quoteAssetId": 18,
+    "symbolCategoryId": 5,
+    "description": "BitcoinCash vs US Dollar",
+    "sortingNumber": 0
+  },
+  {
+    "symbolId": 1420,
+    "symbolName": "ALUMINIUM",
+    "enabled": true,
+    "baseAssetId": 1000,
+    "quoteAssetId": 18,
+    "symbolCategoryId": 12,
+    "description": "Spot High grade primary aluminium MT vs US Dollar",
+    "sortingNumber": 0
+  },
+  {
+    "symbolId": 1013,
+    "symbolName": "CADCHF",
+    "enabled": true,
+    "baseAssetId": 2,
+    "quoteAssetId": 3,
+    "symbolCategoryId": 9,
+    "description": "Canadian Dollar vs Swiss Franc",
+    "sortingNumber": 0
+  },
+  {
+    "symbolId": 1038,
+    "symbolName": "AUDCHF",
+    "enabled": true,
+    "baseAssetId": 1,
+    "quoteAssetId": 3,
+    "symbolCategoryId": 10,
+    "description": "Australian Dollar vs Swiss Franc",
+    "sortingNumber": 1
+  },
+  {
+    "symbolId": 15,
+    "symbolName": "CADJPY",
+    "enabled": true,
+    "baseAssetId": 2,
+    "quoteAssetId": 10,
+    "symbolCategoryId": 9,
+    "description": "Canadian Dollar vs Japanese Yen",
+    "sortingNumber": 1
+  },
+  {
+    "symbolId": 42,
+    "symbolName": "XAGUSD",
+    "enabled": true,
+    "baseAssetId": 19,
+    "quoteAssetId": 18,
+    "symbolCategoryId": 11,
+    "description": "Silver Ounce vs US Dollar",
+    "sortingNumber": 1
+  },
+  {
+    "symbolId": 1107,
+    "symbolName": "#USNDAQ100",
+    "enabled": true,
+    "baseAssetId": 38,
+    "quoteAssetId": 18,
+    "symbolCategoryId": 7,
+    "description": "US Nasdaq 100 Spot Index",
+    "sortingNumber": 1
+  },
+  {
+    "symbolId": 1115,
+    "symbolName": "#ChinaHShar",
+    "enabled": true,
+    "baseAssetId": 44,
+    "quoteAssetId": 8,
+    "symbolCategoryId": 8,
+    "description": "China H Shares Spot Index",
+    "sortingNumber": 1
+  },
+  {
+    "symbolId": 1118,
+    "symbolName": "NAT.GAS",
+    "enabled": true,
+    "baseAssetId": 47,
+    "quoteAssetId": 18,
+    "symbolCategoryId": 4,
+    "description": "Natural Gas (US) Spot",
+    "sortingNumber": 1
+  },
+  {
+    "symbolId": 1294,
+    "symbolName": "TIMESS",
+    "enabled": false,
+    "baseAssetId": 218,
+    "quoteAssetId": 217,
+    "symbolCategoryId": 6,
+    "description": "Special symbol",
+    "sortingNumber": 1
+  },
+  {
+    "symbolId": 1300,
+    "symbolName": "BITCOIN",
+    "enabled": true,
+    "baseAssetId": 225,
+    "quoteAssetId": 18,
+    "symbolCategoryId": 5,
+    "description": "Bitcoin vs US Dollar",
+    "sortingNumber": 1
+  },
+  {
+    "symbolId": 1421,
+    "symbolName": "COPPER",
+    "enabled": true,
+    "baseAssetId": 1001,
+    "quoteAssetId": 18,
+    "symbolCategoryId": 12,
+    "description": "Spot Grade A Copper MT vs US Dollar",
+    "sortingNumber": 1
+  },
+  {
+    "symbolId": 13,
+    "symbolName": "CHFJPY",
+    "enabled": true,
+    "baseAssetId": 3,
+    "quoteAssetId": 10,
+    "symbolCategoryId": 9,
+    "description": "Swiss Franc vs Japanese Yen",
+    "sortingNumber": 2
+  },
+  {
+    "symbolId": 1098,
+    "symbolName": "#France120",
+    "enabled": true,
+    "baseAssetId": 29,
+    "quoteAssetId": 6,
+    "symbolCategoryId": 8,
+    "description": "France 120 Spot Index",
+    "sortingNumber": 2
+  },
+  {
+    "symbolId": 1108,
+    "symbolName": "XAUEUR",
+    "enabled": true,
+    "baseAssetId": 20,
+    "quoteAssetId": 6,
+    "symbolCategoryId": 11,
+    "description": "Gold Ounce vs Euro",
+    "sortingNumber": 2
+  },
+  {
+    "symbolId": 1116,
+    "symbolName": "WTI",
+    "enabled": true,
+    "baseAssetId": 45,
+    "quoteAssetId": 18,
+    "symbolCategoryId": 4,
+    "description": "WTI Spot Oil",
+    "sortingNumber": 2
+  },
+  {
+    "symbolId": 1119,
+    "symbolName": "AUDDKK",
+    "enabled": true,
+    "baseAssetId": 1,
+    "quoteAssetId": 5,
+    "symbolCategoryId": 10,
+    "description": "Australian Dollar vs Danish Krone",
+    "sortingNumber": 2
+  },
+  {
+    "symbolId": 1288,
+    "symbolName": "#USSPX500",
+    "enabled": true,
+    "baseAssetId": 214,
+    "quoteAssetId": 18,
+    "symbolCategoryId": 7,
+    "description": "US S&P 500 Spot Index",
+    "sortingNumber": 2
+  },
+  {
+    "symbolId": 1301,
+    "symbolName": "ETHEREUM",
+    "enabled": true,
+    "baseAssetId": 226,
+    "quoteAssetId": 18,
+    "symbolCategoryId": 5,
+    "description": "Ethereum vs US Dollar",
+    "sortingNumber": 2
+  },
+  {
+    "symbolId": 1422,
+    "symbolName": "LEAD",
+    "enabled": true,
+    "baseAssetId": 1002,
+    "quoteAssetId": 18,
+    "symbolCategoryId": 12,
+    "description": "Spot Lead of 99.97% purity MT vs US Dollar",
+    "sortingNumber": 2
+  },
+  {
+    "symbolId": 11,
+    "symbolName": "AUDJPY",
+    "enabled": true,
+    "baseAssetId": 1,
+    "quoteAssetId": 10,
+    "symbolCategoryId": 10,
+    "description": "Australian Dollar vs Japanese Yen",
+    "sortingNumber": 3
+  },
+  {
+    "symbolId": 17,
+    "symbolName": "EURCAD",
+    "enabled": true,
+    "baseAssetId": 6,
+    "quoteAssetId": 2,
+    "symbolCategoryId": 9,
+    "description": "Euro vs Canadian Dollar",
+    "sortingNumber": 3
+  },
+  {
+    "symbolId": 1597,
+    "symbolName": "#US$idx_M25",
+    "enabled": true,
+    "baseAssetId": 1182,
+    "quoteAssetId": 18,
+    "symbolCategoryId": 15,
+    "description": "US Dollar Index Future June 2025",
+    "sortingNumber": 3
+  },
+  {
+    "symbolId": 1093,
+    "symbolName": "#GerTech30",
+    "enabled": true,
+    "baseAssetId": 24,
+    "quoteAssetId": 6,
+    "symbolCategoryId": 8,
+    "description": "Germany Technology 30 Spot Index",
+    "sortingNumber": 3
+  },
+  {
+    "symbolId": 1109,
+    "symbolName": "XAGEUR",
+    "enabled": true,
+    "baseAssetId": 19,
+    "quoteAssetId": 6,
+    "symbolCategoryId": 11,
+    "description": "Silver Ounce vs Euro",
+    "sortingNumber": 3
+  },
+  {
+    "symbolId": 1293,
+    "symbolName": "#Japan225",
+    "enabled": true,
+    "baseAssetId": 216,
+    "quoteAssetId": 18,
+    "symbolCategoryId": 7,
+    "description": "Japan 225 Spot Index",
+    "sortingNumber": 3
+  },
+  {
+    "symbolId": 1302,
+    "symbolName": "LITECOIN",
+    "enabled": true,
+    "baseAssetId": 227,
+    "quoteAssetId": 18,
+    "symbolCategoryId": 5,
+    "description": "Litecoin vs US Dollar",
+    "sortingNumber": 3
+  },
+  {
+    "symbolId": 1423,
+    "symbolName": "ZINC",
+    "enabled": true,
+    "baseAssetId": 1003,
+    "quoteAssetId": 18,
+    "symbolCategoryId": 12,
+    "description": "Spot Zinc of 99.995% purity MT vs US Dollar",
+    "sortingNumber": 3
+  },
+  {
+    "symbolId": 10,
+    "symbolName": "EURCHF",
+    "enabled": true,
+    "baseAssetId": 6,
+    "quoteAssetId": 3,
+    "symbolCategoryId": 9,
+    "description": "Euro vs Swiss Franc",
+    "sortingNumber": 4
+  },
+  {
+    "symbolId": 1601,
+    "symbolName": "#SWI20_M25",
+    "enabled": true,
+    "baseAssetId": 1186,
+    "quoteAssetId": 3,
+    "symbolCategoryId": 15,
+    "description": "Swiss 20 FSMI Index Future June 2025",
+    "sortingNumber": 4
+  },
+  {
+    "symbolId": 1096,
+    "symbolName": "#Germany50",
+    "enabled": true,
+    "baseAssetId": 27,
+    "quoteAssetId": 6,
+    "symbolCategoryId": 8,
+    "description": "Germany 50 (MDAX) Spot Index",
+    "sortingNumber": 4
+  },
+  {
+    "symbolId": 1110,
+    "symbolName": "XAUUSDgr",
+    "enabled": true,
+    "baseAssetId": 39,
+    "quoteAssetId": 18,
+    "symbolCategoryId": 11,
+    "description": "Gold Grams vs US Dollar",
+    "sortingNumber": 4
+  },
+  {
+    "symbolId": 1274,
+    "symbolName": "#AUS200",
+    "enabled": true,
+    "baseAssetId": 200,
+    "quoteAssetId": 1,
+    "symbolCategoryId": 7,
+    "description": "Australia 200 Spot Index",
+    "sortingNumber": 4
+  },
+  {
+    "symbolId": 1305,
+    "symbolName": "XRP",
+    "enabled": true,
+    "baseAssetId": 230,
+    "quoteAssetId": 18,
+    "symbolCategoryId": 5,
+    "description": "Ripple vs US Dollar",
+    "sortingNumber": 4
+  },
+  {
+    "symbolId": 1012,
+    "symbolName": "AUDNZD",
+    "enabled": true,
+    "baseAssetId": 1,
+    "quoteAssetId": 13,
+    "symbolCategoryId": 10,
+    "description": "Australian Dollar vs New Zealand Dollar",
+    "sortingNumber": 4
+  },
+  {
+    "symbolId": 9,
+    "symbolName": "EURGBP",
+    "enabled": true,
+    "baseAssetId": 6,
+    "quoteAssetId": 7,
+    "symbolCategoryId": 9,
+    "description": "Euro vs British Pound",
+    "sortingNumber": 5
+  },
+  {
+    "symbolId": 1094,
+    "symbolName": "#Holland25",
+    "enabled": true,
+    "baseAssetId": 25,
+    "quoteAssetId": 6,
+    "symbolCategoryId": 8,
+    "description": "Netherlands 25 Spot Index",
+    "sortingNumber": 5
+  },
+  {
+    "symbolId": 1105,
+    "symbolName": "#UK100",
+    "enabled": true,
+    "baseAssetId": 36,
+    "quoteAssetId": 7,
+    "symbolCategoryId": 7,
+    "description": "FTSE 100 Spot Index",
+    "sortingNumber": 5
+  },
+  {
+    "symbolId": 1120,
+    "symbolName": "AUDPLN",
+    "enabled": true,
+    "baseAssetId": 1,
+    "quoteAssetId": 14,
+    "symbolCategoryId": 10,
+    "description": "Australian Dollar vs Polish Zloty",
+    "sortingNumber": 5
+  },
+  {
+    "symbolId": 1298,
+    "symbolName": "XPTUSD",
+    "enabled": true,
+    "baseAssetId": 223,
+    "quoteAssetId": 18,
+    "symbolCategoryId": 11,
+    "description": "Platinum Ounce vs US Dollar",
+    "sortingNumber": 5
+  },
+  {
+    "symbolId": 1307,
+    "symbolName": "STELLAR",
+    "enabled": true,
+    "baseAssetId": 232,
+    "quoteAssetId": 18,
+    "symbolCategoryId": 5,
+    "description": "Stellar vs US Dollar",
+    "sortingNumber": 5
+  },
+  {
+    "symbolId": 3,
+    "symbolName": "EURJPY",
+    "enabled": true,
+    "baseAssetId": 6,
+    "quoteAssetId": 10,
+    "symbolCategoryId": 9,
+    "description": "Euro vs Japanese Yen",
+    "sortingNumber": 6
+  },
+  {
+    "symbolId": 1061,
+    "symbolName": "AUDSGD",
+    "enabled": true,
+    "baseAssetId": 1,
+    "quoteAssetId": 16,
+    "symbolCategoryId": 10,
+    "description": "Australian Dollar vs Singapore Dollar",
+    "sortingNumber": 6
+  },
+  {
+    "symbolId": 1103,
+    "symbolName": "#Euro50",
+    "enabled": true,
+    "baseAssetId": 34,
+    "quoteAssetId": 6,
+    "symbolCategoryId": 7,
+    "description": "Euro Stoxx 50 Spot Index",
+    "sortingNumber": 6
+  },
+  {
+    "symbolId": 1114,
+    "symbolName": "#HongKong50",
+    "enabled": true,
+    "baseAssetId": 43,
+    "quoteAssetId": 8,
+    "symbolCategoryId": 8,
+    "description": "Hong Kong 50 Spot Index",
+    "sortingNumber": 6
+  },
+  {
+    "symbolId": 1634,
+    "symbolName": "#NGas_M25",
+    "enabled": true,
+    "baseAssetId": 1229,
+    "quoteAssetId": 18,
+    "symbolCategoryId": 18,
+    "description": "Natural Gas Futures June 2025",
+    "sortingNumber": 6
+  },
+  {
+    "symbolId": 1299,
+    "symbolName": "XPDUSD",
+    "enabled": true,
+    "baseAssetId": 224,
+    "quoteAssetId": 18,
+    "symbolCategoryId": 11,
+    "description": "Palladium Ounce vs US Dollar",
+    "sortingNumber": 6
+  },
+  {
+    "symbolId": 1308,
+    "symbolName": "POLKADOT",
+    "enabled": true,
+    "baseAssetId": 233,
+    "quoteAssetId": 18,
+    "symbolCategoryId": 5,
+    "description": "Polkadot vs US Dollar",
+    "sortingNumber": 6
+  },
+  {
+    "symbolId": 1,
+    "symbolName": "EURUSD",
+    "enabled": true,
+    "baseAssetId": 6,
+    "quoteAssetId": 18,
+    "symbolCategoryId": 9,
+    "description": "Euro vs US Dollar",
+    "sortingNumber": 7
+  },
+  {
+    "symbolId": 5,
+    "symbolName": "AUDUSD",
+    "enabled": true,
+    "baseAssetId": 1,
+    "quoteAssetId": 18,
+    "symbolCategoryId": 10,
+    "description": "Australian Dollar vs US Dollar",
+    "sortingNumber": 7
+  },
+  {
+    "symbolId": 1593,
+    "symbolName": "#JP225_M25",
+    "enabled": true,
+    "baseAssetId": 1178,
+    "quoteAssetId": 18,
+    "symbolCategoryId": 14,
+    "description": "Japan225 Nikkei Index Futures June 2025",
+    "sortingNumber": 7
+  },
+  {
+    "symbolId": 1106,
+    "symbolName": "#Germany40",
+    "enabled": true,
+    "baseAssetId": 37,
+    "quoteAssetId": 6,
+    "symbolCategoryId": 7,
+    "description": "Germany 40 (DAX) Spot Index",
+    "sortingNumber": 7
+  },
+  {
+    "symbolId": 1627,
+    "symbolName": "#Corn_N25",
+    "enabled": true,
+    "baseAssetId": 1222,
+    "quoteAssetId": 18,
+    "symbolCategoryId": 16,
+    "description": "Corn Future July 2025",
+    "sortingNumber": 7
+  },
+  {
+    "symbolId": 1635,
+    "symbolName": "#USOil_M25",
+    "enabled": true,
+    "baseAssetId": 1230,
+    "quoteAssetId": 18,
+    "symbolCategoryId": 18,
+    "description": "WTI Oil Future June 2025",
+    "sortingNumber": 7
+  },
+  {
+    "symbolId": 1285,
+    "symbolName": "#Spain35",
+    "enabled": true,
+    "baseAssetId": 211,
+    "quoteAssetId": 6,
+    "symbolCategoryId": 8,
+    "description": "Spain 35 Spot Index",
+    "sortingNumber": 7
+  },
+  {
+    "symbolId": 1309,
+    "symbolName": "EOS",
+    "enabled": true,
+    "baseAssetId": 234,
+    "quoteAssetId": 18,
+    "symbolCategoryId": 5,
+    "description": "EOS vs US Dollar",
+    "sortingNumber": 7
+  },
+  {
+    "symbolId": 1040,
+    "symbolName": "GBPCAD",
+    "enabled": true,
+    "baseAssetId": 7,
+    "quoteAssetId": 2,
+    "symbolCategoryId": 9,
+    "description": "British Pound vs Canadian Dollar",
+    "sortingNumber": 8
+  },
+  {
+    "symbolId": 1062,
+    "symbolName": "CHFPLN",
+    "enabled": true,
+    "baseAssetId": 3,
+    "quoteAssetId": 14,
+    "symbolCategoryId": 10,
+    "description": "Swiss Franc vs Polish Zloty",
+    "sortingNumber": 8
+  },
+  {
+    "symbolId": 1594,
+    "symbolName": "#DJ30_M25",
+    "enabled": true,
+    "baseAssetId": 1179,
+    "quoteAssetId": 18,
+    "symbolCategoryId": 14,
+    "description": "US 30 Dow Jones Index Future June 2025",
+    "sortingNumber": 8
+  },
+  {
+    "symbolId": 1104,
+    "symbolName": "#France40",
+    "enabled": true,
+    "baseAssetId": 35,
+    "quoteAssetId": 6,
+    "symbolCategoryId": 7,
+    "description": "France CAC 40 Spot Index",
+    "sortingNumber": 8
+  },
+  {
+    "symbolId": 1628,
+    "symbolName": "#SBean_N25",
+    "enabled": true,
+    "baseAssetId": 1223,
+    "quoteAssetId": 18,
+    "symbolCategoryId": 16,
+    "description": "Soybean  Future July 2025",
+    "sortingNumber": 8
+  },
+  {
+    "symbolId": 1636,
+    "symbolName": "#UKOil_N25",
+    "enabled": true,
+    "baseAssetId": 1231,
+    "quoteAssetId": 18,
+    "symbolCategoryId": 18,
+    "description": "Brent Oil Future July 2025",
+    "sortingNumber": 8
+  },
+  {
+    "symbolId": 1286,
+    "symbolName": "#Swiss20",
+    "enabled": true,
+    "baseAssetId": 212,
+    "quoteAssetId": 3,
+    "symbolCategoryId": 8,
+    "description": "Switzerland 20 Spot Index",
+    "sortingNumber": 8
+  },
+  {
+    "symbolId": 1310,
+    "symbolName": "CHAINLINK",
+    "enabled": true,
+    "baseAssetId": 235,
+    "quoteAssetId": 18,
+    "symbolCategoryId": 5,
+    "description": "Chainlink vs US Dollar",
+    "sortingNumber": 8
+  },
+  {
+    "symbolId": 40,
+    "symbolName": "GBPCHF",
+    "enabled": true,
+    "baseAssetId": 7,
+    "quoteAssetId": 3,
+    "symbolCategoryId": 9,
+    "description": "British Pound vs Swiss Franc",
+    "sortingNumber": 9
+  },
+  {
+    "symbolId": 1595,
+    "symbolName": "#US100_M25",
+    "enabled": true,
+    "baseAssetId": 1180,
+    "quoteAssetId": 18,
+    "symbolCategoryId": 14,
+    "description": "US100 Nasdaq Tech Index Future June 2025",
+    "sortingNumber": 9
+  },
+  {
+    "symbolId": 1629,
+    "symbolName": "#Wheat_N25",
+    "enabled": true,
+    "baseAssetId": 1224,
+    "quoteAssetId": 18,
+    "symbolCategoryId": 16,
+    "description": "Wheat Future July 2025",
+    "sortingNumber": 9
+  },
+  {
+    "symbolId": 1121,
+    "symbolName": "CHFSGD",
+    "enabled": true,
+    "baseAssetId": 3,
+    "quoteAssetId": 16,
+    "symbolCategoryId": 10,
+    "description": "Swiss Franc vs Singapore Dollar",
+    "sortingNumber": 9
+  },
+  {
+    "symbolId": 1297,
+    "symbolName": "#US2000",
+    "enabled": true,
+    "baseAssetId": 222,
+    "quoteAssetId": 18,
+    "symbolCategoryId": 7,
+    "description": "US Russell 2000 Spot Index CFD",
+    "sortingNumber": 9
+  },
+  {
+    "symbolId": 1311,
+    "symbolName": "DOGECOIN",
+    "enabled": true,
+    "baseAssetId": 236,
+    "quoteAssetId": 18,
+    "symbolCategoryId": 5,
+    "description": "DOGE vs US Dollar",
+    "sortingNumber": 9
+  },
+  {
+    "symbolId": 7,
+    "symbolName": "GBPJPY",
+    "enabled": true,
+    "baseAssetId": 7,
+    "quoteAssetId": 10,
+    "symbolCategoryId": 9,
+    "description": "British Pound vs Japanese Yen",
+    "sortingNumber": 10
+  },
+  {
+    "symbolId": 14,
+    "symbolName": "EURAUD",
+    "enabled": true,
+    "baseAssetId": 6,
+    "quoteAssetId": 1,
+    "symbolCategoryId": 10,
+    "description": "Euro vs Australian Dollar",
+    "sortingNumber": 10
+  },
+  {
+    "symbolId": 1596,
+    "symbolName": "#US500_M25",
+    "enabled": true,
+    "baseAssetId": 1181,
+    "quoteAssetId": 18,
+    "symbolCategoryId": 14,
+    "description": "US500 Index Future June 2025",
+    "sortingNumber": 10
+  },
+  {
+    "symbolId": 1630,
+    "symbolName": "#Cotton_N25",
+    "enabled": true,
+    "baseAssetId": 1225,
+    "quoteAssetId": 18,
+    "symbolCategoryId": 16,
+    "description": "Cotton Future July 2025",
+    "sortingNumber": 10
+  },
+  {
+    "symbolId": 1312,
+    "symbolName": "IOTA",
+    "enabled": true,
+    "baseAssetId": 237,
+    "quoteAssetId": 18,
+    "symbolCategoryId": 5,
+    "description": "IOTA vs US Dollar",
+    "sortingNumber": 10
+  },
+  {
+    "symbolId": 2,
+    "symbolName": "GBPUSD",
+    "enabled": true,
+    "baseAssetId": 7,
+    "quoteAssetId": 18,
+    "symbolCategoryId": 9,
+    "description": "British Pound vs US Dollar",
+    "sortingNumber": 11
+  },
+  {
+    "symbolId": 1056,
+    "symbolName": "EURCZK",
+    "enabled": true,
+    "baseAssetId": 6,
+    "quoteAssetId": 4,
+    "symbolCategoryId": 10,
+    "description": "Euro vs Czech Koruna",
+    "sortingNumber": 11
+  },
+  {
+    "symbolId": 1598,
+    "symbolName": "#UK100_M25",
+    "enabled": true,
+    "baseAssetId": 1183,
+    "quoteAssetId": 7,
+    "symbolCategoryId": 14,
+    "description": "UK100 FTSE Index Future June 2025",
+    "sortingNumber": 11
+  },
+  {
+    "symbolId": 1631,
+    "symbolName": "#Sugar_N25",
+    "enabled": true,
+    "baseAssetId": 1226,
+    "quoteAssetId": 18,
+    "symbolCategoryId": 16,
+    "description": "Sugar Future July 2025",
+    "sortingNumber": 11
+  },
+  {
+    "symbolId": 1313,
+    "symbolName": "DASH",
+    "enabled": true,
+    "baseAssetId": 238,
+    "quoteAssetId": 18,
+    "symbolCategoryId": 5,
+    "description": "DASH vs US Dollar",
+    "sortingNumber": 11
+  },
+  {
+    "symbolId": 8,
+    "symbolName": "USDCAD",
+    "enabled": true,
+    "baseAssetId": 18,
+    "quoteAssetId": 2,
+    "symbolCategoryId": 9,
+    "description": "US Dollar vs Canadian Dollar",
+    "sortingNumber": 12
+  },
+  {
+    "symbolId": 1599,
+    "symbolName": "#EUR50_M25",
+    "enabled": true,
+    "baseAssetId": 1184,
+    "quoteAssetId": 6,
+    "symbolCategoryId": 14,
+    "description": "Euro 50 Index Futures June 2025",
+    "sortingNumber": 12
+  },
+  {
+    "symbolId": 1632,
+    "symbolName": "#Coffee_N25",
+    "enabled": true,
+    "baseAssetId": 1227,
+    "quoteAssetId": 18,
+    "symbolCategoryId": 16,
+    "description": "Coffee Futures July 2025",
+    "sortingNumber": 12
+  },
+  {
+    "symbolId": 1314,
+    "symbolName": "ZCASH",
+    "enabled": true,
+    "baseAssetId": 239,
+    "quoteAssetId": 18,
+    "symbolCategoryId": 5,
+    "description": "Zet Cash vs US Dollar",
+    "sortingNumber": 12
+  },
+  {
+    "symbolId": 1014,
+    "symbolName": "EURDKK",
+    "enabled": true,
+    "baseAssetId": 6,
+    "quoteAssetId": 5,
+    "symbolCategoryId": 10,
+    "description": "Euro vs Danish Krone",
+    "sortingNumber": 12
+  },
+  {
+    "symbolId": 6,
+    "symbolName": "USDCHF",
+    "enabled": true,
+    "baseAssetId": 18,
+    "quoteAssetId": 3,
+    "symbolCategoryId": 9,
+    "description": "US Dollar vs Swiss Franc",
+    "sortingNumber": 13
+  },
+  {
+    "symbolId": 1051,
+    "symbolName": "EURHKD",
+    "enabled": true,
+    "baseAssetId": 6,
+    "quoteAssetId": 8,
+    "symbolCategoryId": 10,
+    "description": "Euro vs Hong Kong Dollar",
+    "sortingNumber": 13
+  },
+  {
+    "symbolId": 1600,
+    "symbolName": "#GER40_M25",
+    "enabled": true,
+    "baseAssetId": 1185,
+    "quoteAssetId": 6,
+    "symbolCategoryId": 14,
+    "description": "Germany 40 DAX Index Future June 2025",
+    "sortingNumber": 13
+  },
+  {
+    "symbolId": 1633,
+    "symbolName": "#Cocoa_N25",
+    "enabled": true,
+    "baseAssetId": 1228,
+    "quoteAssetId": 18,
+    "symbolCategoryId": 16,
+    "description": "Cocoa Future July 2025",
+    "sortingNumber": 13
+  },
+  {
+    "symbolId": 1316,
+    "symbolName": "NEO",
+    "enabled": true,
+    "baseAssetId": 241,
+    "quoteAssetId": 18,
+    "symbolCategoryId": 5,
+    "description": "NEO vs US Dollar",
+    "sortingNumber": 13
+  },
+  {
+    "symbolId": 4,
+    "symbolName": "USDJPY",
+    "enabled": true,
+    "baseAssetId": 18,
+    "quoteAssetId": 10,
+    "symbolCategoryId": 9,
+    "description": "US Dollar vs Japanese Yen",
+    "sortingNumber": 14
+  },
+  {
+    "symbolId": 1602,
+    "symbolName": "#FRA40_M25",
+    "enabled": true,
+    "baseAssetId": 1187,
+    "quoteAssetId": 6,
+    "symbolCategoryId": 14,
+    "description": "France 40 CAC Index Future June 2025",
+    "sortingNumber": 14
+  },
+  {
+    "symbolId": 1317,
+    "symbolName": "BAT",
+    "enabled": true,
+    "baseAssetId": 242,
+    "quoteAssetId": 18,
+    "symbolCategoryId": 5,
+    "description": "Basic Attention Toker vs US Dollar",
+    "sortingNumber": 14
+  },
+  {
+    "symbolId": 1015,
+    "symbolName": "EURHUF",
+    "enabled": true,
+    "baseAssetId": 6,
+    "quoteAssetId": 9,
+    "symbolCategoryId": 10,
+    "description": "Euro vs Hungarian Forint",
+    "sortingNumber": 14
+  },
+  {
+    "symbolId": 1603,
+    "symbolName": "#US2000_M25",
+    "enabled": true,
+    "baseAssetId": 1188,
+    "quoteAssetId": 18,
+    "symbolCategoryId": 14,
+    "description": "US2000 E-mini Russell 2000 Index June 2025",
+    "sortingNumber": 15
+  },
+  {
+    "symbolId": 1318,
+    "symbolName": "ETHCLASSIC",
+    "enabled": true,
+    "baseAssetId": 243,
+    "quoteAssetId": 18,
+    "symbolCategoryId": 5,
+    "description": "Ethereum Classic vs US Dollar",
+    "sortingNumber": 15
+  },
+  {
+    "symbolId": 1016,
+    "symbolName": "EURMXN",
+    "enabled": true,
+    "baseAssetId": 6,
+    "quoteAssetId": 11,
+    "symbolCategoryId": 10,
+    "description": "Euro vs Mexican Pesos",
+    "sortingNumber": 15
+  },
+  {
+    "symbolId": 1039,
+    "symbolName": "EURNOK",
+    "enabled": true,
+    "baseAssetId": 6,
+    "quoteAssetId": 12,
+    "symbolCategoryId": 10,
+    "description": "Euro vs Norwegian Krone",
+    "sortingNumber": 16
+  },
+  {
+    "symbolId": 1319,
+    "symbolName": "MONERO",
+    "enabled": false,
+    "baseAssetId": 244,
+    "quoteAssetId": 18,
+    "symbolCategoryId": 5,
+    "description": "Monero vs US Dollar",
+    "sortingNumber": 16
+  },
+  {
+    "symbolId": 1425,
+    "symbolName": "AAVE",
+    "enabled": true,
+    "baseAssetId": 1004,
+    "quoteAssetId": 18,
+    "symbolCategoryId": 5,
+    "description": "AAVE vs US Dollar",
+    "sortingNumber": 17
+  },
+  {
+    "symbolId": 1017,
+    "symbolName": "EURNZD",
+    "enabled": true,
+    "baseAssetId": 6,
+    "quoteAssetId": 13,
+    "symbolCategoryId": 10,
+    "description": "Euro vs New Zealand Dollar",
+    "sortingNumber": 17
+  },
+  {
+    "symbolId": 1426,
+    "symbolName": "CARDANO",
+    "enabled": true,
+    "baseAssetId": 1006,
+    "quoteAssetId": 18,
+    "symbolCategoryId": 5,
+    "description": "Cardano  vs US Dollar",
+    "sortingNumber": 18
+  },
+  {
+    "symbolId": 1018,
+    "symbolName": "EURPLN",
+    "enabled": true,
+    "baseAssetId": 6,
+    "quoteAssetId": 14,
+    "symbolCategoryId": 10,
+    "description": "Euro vs Polish Zloty",
+    "sortingNumber": 18
+  },
+  {
+    "symbolId": 1059,
+    "symbolName": "EURRUB",
+    "enabled": true,
+    "baseAssetId": 6,
+    "quoteAssetId": 23,
+    "symbolCategoryId": 10,
+    "description": "Euro vs Russian Ruble",
+    "sortingNumber": 19
+  },
+  {
+    "symbolId": 1427,
+    "symbolName": "FILECOIN",
+    "enabled": true,
+    "baseAssetId": 1007,
+    "quoteAssetId": 18,
+    "symbolCategoryId": 5,
+    "description": "Filecoin vs US Dollar",
+    "sortingNumber": 19
+  },
+  {
+    "symbolId": 1428,
+    "symbolName": "SOLANA",
+    "enabled": true,
+    "baseAssetId": 1008,
+    "quoteAssetId": 18,
+    "symbolCategoryId": 5,
+    "description": "Solana vs US Dollar",
+    "sortingNumber": 20
+  },
+  {
+    "symbolId": 1019,
+    "symbolName": "EURSEK",
+    "enabled": true,
+    "baseAssetId": 6,
+    "quoteAssetId": 15,
+    "symbolCategoryId": 10,
+    "description": "Euro vs Swedish Krona",
+    "sortingNumber": 20
+  },
+  {
+    "symbolId": 1063,
+    "symbolName": "EURSGD",
+    "enabled": true,
+    "baseAssetId": 6,
+    "quoteAssetId": 16,
+    "symbolCategoryId": 10,
+    "description": "Euro vs Singapore Dollar",
+    "sortingNumber": 21
+  },
+  {
+    "symbolId": 1429,
+    "symbolName": "SUSHISWAP",
+    "enabled": true,
+    "baseAssetId": 1009,
+    "quoteAssetId": 18,
+    "symbolCategoryId": 5,
+    "description": "SushiSwap  vs US Dollar",
+    "sortingNumber": 21
+  },
+  {
+    "symbolId": 1430,
+    "symbolName": "THETA",
+    "enabled": true,
+    "baseAssetId": 1010,
+    "quoteAssetId": 18,
+    "symbolCategoryId": 5,
+    "description": "THETA vs US Dollar",
+    "sortingNumber": 22
+  },
+  {
+    "symbolId": 1001,
+    "symbolName": "EURTRY",
+    "enabled": true,
+    "baseAssetId": 6,
+    "quoteAssetId": 17,
+    "symbolCategoryId": 10,
+    "description": "Euro vs Turkish Lira",
+    "sortingNumber": 22
+  },
+  {
+    "symbolId": 1052,
+    "symbolName": "EURZAR",
+    "enabled": true,
+    "baseAssetId": 6,
+    "quoteAssetId": 21,
+    "symbolCategoryId": 10,
+    "description": "Euro vs South African Rand",
+    "sortingNumber": 23
+  },
+  {
+    "symbolId": 1431,
+    "symbolName": "TRON",
+    "enabled": true,
+    "baseAssetId": 1011,
+    "quoteAssetId": 18,
+    "symbolCategoryId": 5,
+    "description": "Tron vs US Dollar",
+    "sortingNumber": 23
+  },
+  {
+    "symbolId": 16,
+    "symbolName": "GBPAUD",
+    "enabled": true,
+    "baseAssetId": 7,
+    "quoteAssetId": 1,
+    "symbolCategoryId": 10,
+    "description": "British Pound vs Australian Dollar",
+    "sortingNumber": 24
+  },
+  {
+    "symbolId": 1432,
+    "symbolName": "UNISWAP",
+    "enabled": true,
+    "baseAssetId": 1012,
+    "quoteAssetId": 18,
+    "symbolCategoryId": 5,
+    "description": "Uniswap vs US Dollar",
+    "sortingNumber": 24
+  },
+  {
+    "symbolId": 1064,
+    "symbolName": "GBPDKK",
+    "enabled": true,
+    "baseAssetId": 7,
+    "quoteAssetId": 5,
+    "symbolCategoryId": 10,
+    "description": "British Pound vs Danish Krone",
+    "sortingNumber": 25
+  },
+  {
+    "symbolId": 1433,
+    "symbolName": "VECHAIN",
+    "enabled": false,
+    "baseAssetId": 1013,
+    "quoteAssetId": 18,
+    "symbolCategoryId": 5,
+    "description": "VeChain vs US Dollar",
+    "sortingNumber": 25
+  },
+  {
+    "symbolId": 1041,
+    "symbolName": "GBPNOK",
+    "enabled": true,
+    "baseAssetId": 7,
+    "quoteAssetId": 12,
+    "symbolCategoryId": 10,
+    "description": "British Pound vs Norwegian Krone",
+    "sortingNumber": 26
+  },
+  {
+    "symbolId": 1434,
+    "symbolName": "TEZOS",
+    "enabled": true,
+    "baseAssetId": 1014,
+    "quoteAssetId": 18,
+    "symbolCategoryId": 5,
+    "description": "Tezos  vs US Dollar",
+    "sortingNumber": 26
+  },
+  {
+    "symbolId": 1042,
+    "symbolName": "GBPNZD",
+    "enabled": true,
+    "baseAssetId": 7,
+    "quoteAssetId": 13,
+    "symbolCategoryId": 10,
+    "description": "British Pound vs New Zealand Dollar ",
+    "sortingNumber": 27
+  },
+  {
+    "symbolId": 1505,
+    "symbolName": "BINANCECOIN",
+    "enabled": true,
+    "baseAssetId": 1085,
+    "quoteAssetId": 18,
+    "symbolCategoryId": 5,
+    "description": "Binance Coin vs US Dollar",
+    "sortingNumber": 27
+  },
+  {
+    "symbolId": 1065,
+    "symbolName": "GBPPLN",
+    "enabled": true,
+    "baseAssetId": 7,
+    "quoteAssetId": 14,
+    "symbolCategoryId": 10,
+    "description": "British Pound vs Polish Zloty",
+    "sortingNumber": 28
+  },
+  {
+    "symbolId": 1592,
+    "symbolName": "TRUMP",
+    "enabled": true,
+    "baseAssetId": 1177,
+    "quoteAssetId": 18,
+    "symbolCategoryId": 5,
+    "description": "TrumpCoin vs US Dollar",
+    "sortingNumber": 28
+  },
+  {
+    "symbolId": 1066,
+    "symbolName": "GBPSEK",
+    "enabled": true,
+    "baseAssetId": 7,
+    "quoteAssetId": 15,
+    "symbolCategoryId": 10,
+    "description": "British Pound vs Swedish Krona",
+    "sortingNumber": 29
+  },
+  {
+    "symbolId": 1614,
+    "symbolName": "HEDERA",
+    "enabled": true,
+    "baseAssetId": 1209,
+    "quoteAssetId": 18,
+    "symbolCategoryId": 5,
+    "description": "Hedera vs US Dollar",
+    "sortingNumber": 29
+  },
+  {
+    "symbolId": 1043,
+    "symbolName": "GBPSGD",
+    "enabled": true,
+    "baseAssetId": 7,
+    "quoteAssetId": 16,
+    "symbolCategoryId": 10,
+    "description": "British Pound vs Singapore Dollar",
+    "sortingNumber": 30
+  },
+  {
+    "symbolId": 1615,
+    "symbolName": "GRAPH",
+    "enabled": true,
+    "baseAssetId": 1210,
+    "quoteAssetId": 18,
+    "symbolCategoryId": 5,
+    "description": "The Graph vs US Dollar",
+    "sortingNumber": 30
+  },
+  {
+    "symbolId": 1616,
+    "symbolName": "ALGORAND",
+    "enabled": true,
+    "baseAssetId": 1211,
+    "quoteAssetId": 18,
+    "symbolCategoryId": 5,
+    "description": "Algorand vs US Dollar",
+    "sortingNumber": 31
+  },
+  {
+    "symbolId": 1020,
+    "symbolName": "GBPZAR",
+    "enabled": true,
+    "baseAssetId": 7,
+    "quoteAssetId": 21,
+    "symbolCategoryId": 10,
+    "description": "British Pound vs South African Rand",
+    "sortingNumber": 31
+  },
+  {
+    "symbolId": 1068,
+    "symbolName": "NOKSEK",
+    "enabled": true,
+    "baseAssetId": 12,
+    "quoteAssetId": 15,
+    "symbolCategoryId": 10,
+    "description": "Norwegian Krone vs Swedish Krona",
+    "sortingNumber": 32
+  },
+  {
+    "symbolId": 1617,
+    "symbolName": "TONCOIN",
+    "enabled": true,
+    "baseAssetId": 1212,
+    "quoteAssetId": 18,
+    "symbolCategoryId": 5,
+    "description": "Toncoin vs US Dollar",
+    "sortingNumber": 32
+  },
+  {
+    "symbolId": 1044,
+    "symbolName": "NZDCAD",
+    "enabled": true,
+    "baseAssetId": 13,
+    "quoteAssetId": 2,
+    "symbolCategoryId": 10,
+    "description": "New Zealand Dollar vs Canadian Dollar",
+    "sortingNumber": 33
+  },
+  {
+    "symbolId": 1618,
+    "symbolName": "IMMUTABLE",
+    "enabled": true,
+    "baseAssetId": 1213,
+    "quoteAssetId": 18,
+    "symbolCategoryId": 5,
+    "description": "Immutable vs US Dollar",
+    "sortingNumber": 33
+  },
+  {
+    "symbolId": 1045,
+    "symbolName": "NZDCHF",
+    "enabled": true,
+    "baseAssetId": 13,
+    "quoteAssetId": 3,
+    "symbolCategoryId": 10,
+    "description": "New Zealand Dollar vs Swiss Franc",
+    "sortingNumber": 34
+  },
+  {
+    "symbolId": 1619,
+    "symbolName": "NEAR",
+    "enabled": true,
+    "baseAssetId": 1214,
+    "quoteAssetId": 18,
+    "symbolCategoryId": 5,
+    "description": "NEAR protocol vs US Dollar",
+    "sortingNumber": 34
+  },
+  {
+    "symbolId": 1046,
+    "symbolName": "NZDJPY",
+    "enabled": true,
+    "baseAssetId": 13,
+    "quoteAssetId": 10,
+    "symbolCategoryId": 10,
+    "description": "New Zealand Dollar vs Japanese Yen",
+    "sortingNumber": 35
+  },
+  {
+    "symbolId": 1620,
+    "symbolName": "INTERNET",
+    "enabled": true,
+    "baseAssetId": 1215,
+    "quoteAssetId": 18,
+    "symbolCategoryId": 5,
+    "description": "Internet Computer vs US Dollar",
+    "sortingNumber": 35
+  },
+  {
+    "symbolId": 1621,
+    "symbolName": "APTOS",
+    "enabled": true,
+    "baseAssetId": 1216,
+    "quoteAssetId": 18,
+    "symbolCategoryId": 5,
+    "description": "Aptos vs US Dollar",
+    "sortingNumber": 36
+  },
+  {
+    "symbolId": 1021,
+    "symbolName": "NZDSGD",
+    "enabled": true,
+    "baseAssetId": 13,
+    "quoteAssetId": 16,
+    "symbolCategoryId": 10,
+    "description": "New Zealand Dollar vs Singapore Dollar",
+    "sortingNumber": 36
+  },
+  {
+    "symbolId": 12,
+    "symbolName": "NZDUSD",
+    "enabled": true,
+    "baseAssetId": 13,
+    "quoteAssetId": 18,
+    "symbolCategoryId": 10,
+    "description": "New Zealand Dollar vs US Dollar",
+    "sortingNumber": 37
+  },
+  {
+    "symbolId": 1622,
+    "symbolName": "COSMOS",
+    "enabled": true,
+    "baseAssetId": 1217,
+    "quoteAssetId": 18,
+    "symbolCategoryId": 5,
+    "description": "Cosmos vs US Dollar",
+    "sortingNumber": 37
+  },
+  {
+    "symbolId": 1067,
+    "symbolName": "PLNJPY",
+    "enabled": true,
+    "baseAssetId": 14,
+    "quoteAssetId": 10,
+    "symbolCategoryId": 10,
+    "description": "Polish Zloty vs Japanese Yen",
+    "sortingNumber": 38
+  },
+  {
+    "symbolId": 1623,
+    "symbolName": "AVALANCHE",
+    "enabled": true,
+    "baseAssetId": 1218,
+    "quoteAssetId": 18,
+    "symbolCategoryId": 5,
+    "description": "Avalanche vs US Dollar",
+    "sortingNumber": 38
+  },
+  {
+    "symbolId": 1053,
+    "symbolName": "SGDJPY",
+    "enabled": true,
+    "baseAssetId": 16,
+    "quoteAssetId": 10,
+    "symbolCategoryId": 10,
+    "description": "Singapore Dollar vs Japanese Yen",
+    "sortingNumber": 39
+  },
+  {
+    "symbolId": 1058,
+    "symbolName": "USDCNH",
+    "enabled": true,
+    "baseAssetId": 18,
+    "quoteAssetId": 22,
+    "symbolCategoryId": 10,
+    "description": "US Dollar vs China Offshore Spot",
+    "sortingNumber": 40
+  },
+  {
+    "symbolId": 1057,
+    "symbolName": "USDCZK",
+    "enabled": true,
+    "baseAssetId": 18,
+    "quoteAssetId": 4,
+    "symbolCategoryId": 10,
+    "description": "US Dollar vs Czech Koruna",
+    "sortingNumber": 41
+  },
+  {
+    "symbolId": 1022,
+    "symbolName": "USDDKK",
+    "enabled": true,
+    "baseAssetId": 18,
+    "quoteAssetId": 5,
+    "symbolCategoryId": 10,
+    "description": "US Dollar vs Danish Krone",
+    "sortingNumber": 42
+  },
+  {
+    "symbolId": 1054,
+    "symbolName": "USDHKD",
+    "enabled": true,
+    "baseAssetId": 18,
+    "quoteAssetId": 8,
+    "symbolCategoryId": 10,
+    "description": "US Dollar vs Hong Kong Dollar",
+    "sortingNumber": 43
+  },
+  {
+    "symbolId": 1023,
+    "symbolName": "USDHUF",
+    "enabled": true,
+    "baseAssetId": 18,
+    "quoteAssetId": 9,
+    "symbolCategoryId": 10,
+    "description": "US Dollar vs Hungarian Forint",
+    "sortingNumber": 44
+  },
+  {
+    "symbolId": 1122,
+    "symbolName": "USDILS",
+    "enabled": true,
+    "baseAssetId": 18,
+    "quoteAssetId": 48,
+    "symbolCategoryId": 10,
+    "description": "US Dollar vs Israeli Shekel",
+    "sortingNumber": 45
+  },
+  {
+    "symbolId": 1047,
+    "symbolName": "USDMXN",
+    "enabled": true,
+    "baseAssetId": 18,
+    "quoteAssetId": 11,
+    "symbolCategoryId": 10,
+    "description": "US Dollar vs Mexican Pesos",
+    "sortingNumber": 46
+  },
+  {
+    "symbolId": 1048,
+    "symbolName": "USDNOK",
+    "enabled": true,
+    "baseAssetId": 18,
+    "quoteAssetId": 12,
+    "symbolCategoryId": 10,
+    "description": "US Dollar vs Norwegian Krone",
+    "sortingNumber": 47
+  },
+  {
+    "symbolId": 1049,
+    "symbolName": "USDPLN",
+    "enabled": true,
+    "baseAssetId": 18,
+    "quoteAssetId": 14,
+    "symbolCategoryId": 10,
+    "description": "US Dollar vs Polish Zloty",
+    "sortingNumber": 48
+  },
+  {
+    "symbolId": 1060,
+    "symbolName": "USDRUB",
+    "enabled": true,
+    "baseAssetId": 18,
+    "quoteAssetId": 23,
+    "symbolCategoryId": 10,
+    "description": "US Dollar vs Russian Ruble",
+    "sortingNumber": 49
+  },
+  {
+    "symbolId": 1050,
+    "symbolName": "USDSEK",
+    "enabled": true,
+    "baseAssetId": 18,
+    "quoteAssetId": 15,
+    "symbolCategoryId": 10,
+    "description": "US Dollar vs Swedish Krona",
+    "sortingNumber": 50
+  },
+  {
+    "symbolId": 28,
+    "symbolName": "USDSGD",
+    "enabled": true,
+    "baseAssetId": 18,
+    "quoteAssetId": 16,
+    "symbolCategoryId": 10,
+    "description": "US Dollar vs Singapore Dollar",
+    "sortingNumber": 51
+  },
+  {
+    "symbolId": 1303,
+    "symbolName": "USDTHB",
+    "enabled": true,
+    "baseAssetId": 18,
+    "quoteAssetId": 228,
+    "symbolCategoryId": 10,
+    "description": "US Dollar vs Thai Baht",
+    "sortingNumber": 52
+  },
+  {
+    "symbolId": 1000,
+    "symbolName": "USDTRY",
+    "enabled": true,
+    "baseAssetId": 18,
+    "quoteAssetId": 17,
+    "symbolCategoryId": 10,
+    "description": "US Dollar vs Turkish Lira",
+    "sortingNumber": 53
+  },
+  {
+    "symbolId": 1055,
+    "symbolName": "USDZAR",
+    "enabled": true,
+    "baseAssetId": 18,
+    "quoteAssetId": 21,
+    "symbolCategoryId": 10,
+    "description": "US Dollar vs South African Rand",
+    "sortingNumber": 54
+  },
+  {
+    "symbolId": 1468,
+    "symbolName": "USDRON",
+    "enabled": true,
+    "baseAssetId": 18,
+    "quoteAssetId": 1048,
+    "symbolCategoryId": 10,
+    "description": "US Dollar vs Romanian Leu",
+    "sortingNumber": 55
+  },
+  {
+    "symbolId": 1532,
+    "symbolName": "USDVND",
+    "enabled": false,
+    "baseAssetId": 18,
+    "quoteAssetId": 1112,
+    "symbolCategoryId": 10,
+    "description": "US Dollar vs Vietnamese Dong",
+    "sortingNumber": 57
+  },
+  {
+    "symbolId": 1533,
+    "symbolName": "USDMYR",
+    "enabled": false,
+    "baseAssetId": 18,
+    "quoteAssetId": 1113,
+    "symbolCategoryId": 10,
+    "description": "US Dollar vs  Malaysian Ringgit",
+    "sortingNumber": 58
+  },
+  {
+    "symbolId": 1534,
+    "symbolName": "USDIDR",
+    "enabled": false,
+    "baseAssetId": 18,
+    "quoteAssetId": 1115,
+    "symbolCategoryId": 10,
+    "description": "US Dollar vs Indonesian Rupiah",
+    "sortingNumber": 59
+  },
+  {
+    "symbolId": 1588,
+    "symbolName": "USDNGNc",
+    "enabled": false,
+    "baseAssetId": 18,
+    "quoteAssetId": 1126,
+    "symbolCategoryId": 10,
+    "description": "US Dollar vs Nigerian Naira",
+    "sortingNumber": 60
+  },
+  {
+    "symbolId": 1637,
+    "symbolName": "#JP225_U25",
+    "enabled": true,
+    "baseAssetId": 1233,
+    "quoteAssetId": 18,
+    "symbolCategoryId": 14,
+    "description": "Japan225 Nikkei Index Futures September 2025",
+    "sortingNumber": 61
+  },
+  {
+    "symbolId": 1638,
+    "symbolName": "#DJ30_U25",
+    "enabled": true,
+    "baseAssetId": 1234,
+    "quoteAssetId": 18,
+    "symbolCategoryId": 14,
+    "description": "US 30 Dow Jones Index Future September 2025",
+    "sortingNumber": 62
+  },
+  {
+    "symbolId": 1639,
+    "symbolName": "#US100_U25",
+    "enabled": true,
+    "baseAssetId": 1235,
+    "quoteAssetId": 18,
+    "symbolCategoryId": 14,
+    "description": "US100 Nasdaq Tech Index Future September 2025",
+    "sortingNumber": 63
+  },
+  {
+    "symbolId": 1640,
+    "symbolName": "#US500_U25",
+    "enabled": true,
+    "baseAssetId": 1236,
+    "quoteAssetId": 18,
+    "symbolCategoryId": 14,
+    "description": "US500 Index Future September 2025",
+    "sortingNumber": 64
+  },
+  {
+    "symbolId": 1641,
+    "symbolName": "#US$idx_U25",
+    "enabled": true,
+    "baseAssetId": 1237,
+    "quoteAssetId": 18,
+    "symbolCategoryId": 15,
+    "description": "US Dollar Index Future September 2025",
+    "sortingNumber": 65
+  },
+  {
+    "symbolId": 1642,
+    "symbolName": "#UK100_U25",
+    "enabled": true,
+    "baseAssetId": 1238,
+    "quoteAssetId": 7,
+    "symbolCategoryId": 14,
+    "description": "UK100 FTSE Index Future September 2025",
+    "sortingNumber": 66
+  },
+  {
+    "symbolId": 1643,
+    "symbolName": "#EUR50_U25",
+    "enabled": true,
+    "baseAssetId": 1239,
+    "quoteAssetId": 6,
+    "symbolCategoryId": 14,
+    "description": "Euro 50 Index Futures September 2025",
+    "sortingNumber": 67
+  },
+  {
+    "symbolId": 1644,
+    "symbolName": "#GER40_U25",
+    "enabled": true,
+    "baseAssetId": 1240,
+    "quoteAssetId": 6,
+    "symbolCategoryId": 14,
+    "description": "Germany 40 DAX Index Future September 2025",
+    "sortingNumber": 68
+  },
+  {
+    "symbolId": 1645,
+    "symbolName": "#SWI20_U25",
+    "enabled": true,
+    "baseAssetId": 1241,
+    "quoteAssetId": 3,
+    "symbolCategoryId": 15,
+    "description": "Swiss 20 FSMI Index Future September 2025",
+    "sortingNumber": 69
+  },
+  {
+    "symbolId": 1646,
+    "symbolName": "#FRA40_U25",
+    "enabled": true,
+    "baseAssetId": 1242,
+    "quoteAssetId": 6,
+    "symbolCategoryId": 14,
+    "description": "France 40 CAC Index Future September 2025",
+    "sortingNumber": 70
+  },
+  {
+    "symbolId": 1647,
+    "symbolName": "#US2000_U25",
+    "enabled": true,
+    "baseAssetId": 1243,
+    "quoteAssetId": 18,
+    "symbolCategoryId": 14,
+    "description": "US2000 E-mini Russell 2000 Index September 2025",
+    "sortingNumber": 71
+  },
+  {
+    "symbolId": 1648,
+    "symbolName": "#Corn_U25",
+    "enabled": true,
+    "baseAssetId": 1244,
+    "quoteAssetId": 18,
+    "symbolCategoryId": 16,
+    "description": "Corn Future September 2025",
+    "sortingNumber": 72
+  },
+  {
+    "symbolId": 1649,
+    "symbolName": "#SBean_Q25",
+    "enabled": true,
+    "baseAssetId": 1245,
+    "quoteAssetId": 18,
+    "symbolCategoryId": 16,
+    "description": "Soybean  Future August 2025",
+    "sortingNumber": 73
+  },
+  {
+    "symbolId": 1650,
+    "symbolName": "#Wheat_U25",
+    "enabled": true,
+    "baseAssetId": 1246,
+    "quoteAssetId": 18,
+    "symbolCategoryId": 16,
+    "description": "Wheat Future September 2025",
+    "sortingNumber": 74
+  },
+  {
+    "symbolId": 1651,
+    "symbolName": "#Cotton_V25",
+    "enabled": true,
+    "baseAssetId": 1247,
+    "quoteAssetId": 18,
+    "symbolCategoryId": 16,
+    "description": "Cotton Future October 2025",
+    "sortingNumber": 75
+  },
+  {
+    "symbolId": 1652,
+    "symbolName": "#Sugar_V25",
+    "enabled": true,
+    "baseAssetId": 1248,
+    "quoteAssetId": 18,
+    "symbolCategoryId": 16,
+    "description": "Sugar Future October 2025",
+    "sortingNumber": 76
+  },
+  {
+    "symbolId": 1653,
+    "symbolName": "#Coffee_U25",
+    "enabled": true,
+    "baseAssetId": 1249,
+    "quoteAssetId": 18,
+    "symbolCategoryId": 16,
+    "description": "Coffee Futures September 2025",
+    "sortingNumber": 77
+  },
+  {
+    "symbolId": 1654,
+    "symbolName": "#Cocoa_U25",
+    "enabled": true,
+    "baseAssetId": 1250,
+    "quoteAssetId": 18,
+    "symbolCategoryId": 16,
+    "description": "Cocoa Future September 2025",
+    "sortingNumber": 78
+  },
+  {
+    "symbolId": 1655,
+    "symbolName": "#NGas_N25",
+    "enabled": true,
+    "baseAssetId": 1251,
+    "quoteAssetId": 18,
+    "symbolCategoryId": 18,
+    "description": "Natural Gas Futures July 2025",
+    "sortingNumber": 79
+  },
+  {
+    "symbolId": 1656,
+    "symbolName": "#NGas_Q25",
+    "enabled": true,
+    "baseAssetId": 1252,
+    "quoteAssetId": 18,
+    "symbolCategoryId": 18,
+    "description": "Natural Gas Futures July 2025",
+    "sortingNumber": 80
+  },
+  {
+    "symbolId": 1657,
+    "symbolName": "#USOil_N25",
+    "enabled": true,
+    "baseAssetId": 1253,
+    "quoteAssetId": 18,
+    "symbolCategoryId": 18,
+    "description": "WTI Oil Future July 2025",
+    "sortingNumber": 81
+  },
+  {
+    "symbolId": 1658,
+    "symbolName": "#USOil_Q25",
+    "enabled": true,
+    "baseAssetId": 1254,
+    "quoteAssetId": 18,
+    "symbolCategoryId": 18,
+    "description": "WTI Oil Future July 2025",
+    "sortingNumber": 82
+  },
+  {
+    "symbolId": 1659,
+    "symbolName": "#UKOil_Q25",
+    "enabled": true,
+    "baseAssetId": 1255,
+    "quoteAssetId": 18,
+    "symbolCategoryId": 18,
+    "description": "Brent Oil Future August 2025",
+    "sortingNumber": 83
+  },
+  {
+    "symbolId": 1660,
+    "symbolName": "#UKOil_U25",
+    "enabled": true,
+    "baseAssetId": 1256,
+    "quoteAssetId": 18,
+    "symbolCategoryId": 18,
+    "description": "Brent Oil Future August 2025",
+    "sortingNumber": 84
+  }
+]

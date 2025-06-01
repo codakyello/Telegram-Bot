@@ -1,8 +1,8 @@
 const WebSocket = require("ws");
 const payloadTypes = require("./payloadTypes.json");
 const fs = require("fs");
-const OAModel = require("./OAModel.json");
 const accountSymbols = require("./symbols");
+const { getDetails, roundToNearestHundredth } = require("./helper");
 
 const PROTO_HEARTBEAT_EVENT_PAYLOADTYPE = 51;
 
@@ -11,7 +11,11 @@ const uid = (
     "cm_id_" + i++
 )(1);
 
-function CALCULATE_PRICE_DIFFERENCE({
+// calculate relative pips for ctrader
+// different from normal pips; 60pips === 630pips for currency pairs
+// 600 pips === 600000 pips for gold
+// Dont use this function to calculate lot size.
+function CALCULATE_RELATIVE_PRICE_DIFFERENCE({
   type,
   entry,
   to,
@@ -19,13 +23,7 @@ function CALCULATE_PRICE_DIFFERENCE({
   pipPosition = 5,
   symbolId,
 }) {
-  let priceDifference;
-
-  if ((action === 1 && type === "sl") || (action === 2 && type === "tp")) {
-    priceDifference = Math.round((entry - to) * 10 ** pipPosition);
-  } else {
-    priceDifference = Math.round((to - entry) * 10 ** pipPosition);
-  }
+  let priceDifference = Math.round(Math.abs(to - entry) * 10 ** pipPosition);
 
   // modify gold positions
   if (action === 2 && symbolId === 41) {
@@ -33,6 +31,10 @@ function CALCULATE_PRICE_DIFFERENCE({
   }
 
   return to ? priceDifference : null;
+}
+
+function calculatePip({ entry, toPrice, symbolId }) {
+  return Math.abs(entry - toPrice) / 0.01;
 }
 
 const HEARTBEAT_INTERVAL = 15000; // 15 seconds
@@ -174,7 +176,7 @@ class TradeBot {
 
   getSymbols() {
     this.accountIds.forEach((accountId) => {
-      console.log(accountId);
+      console.log(accountId, "These are the accountIds");
       const msgId = uid();
       const clientMsg = {
         clientMsgId: msgId,
@@ -248,93 +250,112 @@ class TradeBot {
   }
 
   async placeOrder(parameters) {
-    const clientMsgId = uid();
+    // const clientMsgId = uid();
 
-    console.log("placing trades");
-    const orderPromises = this.accountIds.map((accountId) => {
-      // different accounts have different account symbols
-      // show we have to find the symbold id for each accountId
-      const symbolId = accountSymbols[accountId].find(
-        (symbol) =>
-          symbol.symbolName.toLowerCase() === parameters.symbol.toLowerCase()
-      )?.symbolId;
+    console.log("placing trade");
 
-      let relativeStopLoss = CALCULATE_PRICE_DIFFERENCE({
-        type: "sl",
-        action: parameters.action,
-        entry: parameters.entry,
-        to: parameters.stopLoss,
-        symbolId,
-      });
+    // different accounts have different account symbols
+    // show we have to find the symbold id for each trade account
 
-      if (relativeStopLoss <= 0) {
-        throw new Error(`Relative Stop Loss is invalid: ${relativeStopLoss}`);
-      }
+    // const totalVolume = await this.calculateVolume({
+    //   accountId,
+    //   entry: parameters.entry,
+    //   stopLoss: parameters.stopLoss,
+    //   symbolId,
+    // });
 
-      let relativeTakeProfit = CALCULATE_PRICE_DIFFERENCE({
-        type: "tp",
-        action: parameters.action,
-        entry: parameters.entry,
-        to: parameters.takeProfit,
-        symbolId,
-      });
+    // if (totalVolume < parameters.minVolume)
+    //   throw new Error(
+    //     "You total volume is lower than the minVolume to place this trade"
+    //   );
 
-      return new Promise((resolve, reject) => {
-        const msgId = uid();
+    // const volumePerTrade = Number(totalVolume / parameters.tpLength);
+    // console.log(volumePerTrade, "volume per trade");
 
-        console.log(accountId, parameters, symbolId);
-        const clientMsg = {
-          clientMsgId: msgId,
-          payloadType: payloadTypes.PROTO_OA_NEW_ORDER_REQ,
-          payload: {
-            ctidTraderAccountId: accountId,
-            accessToken: this.accessToken,
-            orderType: parameters.orderType,
-            tradeSide: parameters.action,
-            symbolId,
-            volume: parameters.volume,
-            relativeStopLoss,
-            ...(relativeTakeProfit && { relativeTakeProfit }),
-          },
-        };
-
-        const responseHandler = (message) => {
-          const parsed = JSON.parse(message.data);
-
-          if (parsed.clientMsgId !== msgId) return;
-
-          this.ws.removeEventListener("message", responseHandler);
-
-          if (parsed.payloadType === payloadTypes.PROTO_OA_ERROR_RES) {
-            reject(`❌ Account ${accountId}: ${parsed.payload.errorMessage}`);
-          } else if (
-            parsed.payloadType === payloadTypes.PROTO_OA_EXECUTION_EVENT
-          ) {
-            resolve(`✅ Account ${accountId}: Trade executed`);
-            console.log("Trade executed successfully");
-          } else {
-            reject(`❌ Account ${accountId}: Unexpected response`);
-            console.log("Failed to open trade", parsed.payload);
-          }
-        };
-
-        this.ws.addEventListener("message", responseHandler);
-        console.log(`📤 Sending trade for account ${accountId}...`);
-        this.ws.send(JSON.stringify(clientMsg));
-      });
+    let relativeStopLoss = CALCULATE_RELATIVE_PRICE_DIFFERENCE({
+      type: "sl",
+      action: parameters.action,
+      entry: parameters.entry,
+      to: parameters.stopLoss,
+      symbolId: parameters.symbolId,
     });
 
-    const results = await Promise.allSettled(orderPromises);
+    if (relativeStopLoss <= 0) {
+      throw new Error(`Relative Stop Loss is invalid: ${relativeStopLoss}`);
+    }
 
-    results.forEach((result) => {
-      if (result.status === "fulfilled") {
-        console.log(result.value);
-      } else {
-        throw new Error(result.reason);
-      }
+    let relativeTakeProfit = CALCULATE_RELATIVE_PRICE_DIFFERENCE({
+      type: "tp",
+      action: parameters.action,
+      entry: parameters.entry,
+      to: parameters.takeProfit,
+      symbolId: parameters.symbolId,
     });
 
-    return results;
+    console.log(
+      relativeStopLoss,
+      relativeTakeProfit,
+      parameters.accountId,
+      parameters.volume,
+      parameters.symbolId
+    );
+
+    return new Promise((resolve, reject) => {
+      const msgId = uid();
+
+      const clientMsg = {
+        clientMsgId: msgId,
+        payloadType: payloadTypes.PROTO_OA_NEW_ORDER_REQ,
+        payload: {
+          ctidTraderAccountId: parameters.accountId,
+          accessToken: this.accessToken,
+          orderType: parameters.orderType,
+          tradeSide: parameters.action,
+          symbolId: parameters.symbolId,
+          volume: parameters.volume,
+          relativeStopLoss,
+          ...(relativeTakeProfit && { relativeTakeProfit }),
+        },
+      };
+
+      const responseHandler = (message) => {
+        const parsed = JSON.parse(message.data);
+
+        if (parsed.clientMsgId !== msgId) return;
+
+        this.ws.removeEventListener("message", responseHandler);
+
+        if (parsed.payloadType === payloadTypes.PROTO_OA_ERROR_RES) {
+          reject(
+            `❌ Account ${parameters.accountId}: ${parsed.payload.errorMessage}`
+          );
+        } else if (
+          parsed.payloadType === payloadTypes.PROTO_OA_EXECUTION_EVENT
+        ) {
+          resolve(`✅ Account ${parameters.accountId}: Trade executed`);
+          console.log("Trade executed successfully");
+        } else {
+          reject(`❌ Account ${parameters.accountId}: Unexpected response`);
+          console.log("Failed to open trade", parsed.payload);
+        }
+      };
+
+      this.ws.addEventListener("message", responseHandler);
+      console.log(`📤 Sending trade for account ${parameters.accountId}...`);
+      this.ws.send(JSON.stringify(clientMsg));
+    });
+
+    // const results = await Promise.allSettled(orderPromises);
+
+    // results.forEach((result) => {
+    //   if (result.status === "fulfilled") {
+    //     console.log(result.value);
+    //   } else {
+    //     throw new Error(result.reason);
+    //   }
+    // });
+
+    // return results;
   }
 
   async closeTrades() {
@@ -444,6 +465,13 @@ class TradeBot {
           const positions = serverMsg.payload.position || [];
           resolve(positions);
         }
+        if (serverMsg.payloadType === payloadTypes.PROTO_OA_ERROR_RES) {
+          console.error(
+            `❌ Failed to get trade positions on account ${accountId}:`,
+            serverMsg.payload.errorMessage
+          );
+          reject(new Error(serverMsg.payload.errorMessage));
+        }
       };
 
       this.ws.addEventListener("message", reponsponseHandler);
@@ -495,58 +523,193 @@ class TradeBot {
 
   async modifyAccountPositions() {
     for (const accountId of this.accountIds) {
-      const positions = await this.getOpenPositions(accountId);
-      console.log(positions.length);
+      try {
+        const positions = await this.getOpenPositions(accountId);
+        console.log(positions.length);
 
-      for (const position of positions) {
-        const {
-          positionId,
-          stopLoss,
-          price: openPrice,
-          tradeData,
-          takeProfit,
-        } = position;
-
-        if (!stopLoss) {
-          console.log(`⚠️ Position ${positionId} has no SL set. Skipping.`);
-          continue;
-        }
-
-        const tradeSide = tradeData.tradeSide;
-        let newStopLoss;
-
-        if (tradeSide === 1) {
-          // BUY: SL is below entry
-          newStopLoss = openPrice - (openPrice - stopLoss) / 2;
-        } else if (tradeSide === 2) {
-          // SELL: SL is above entry
-          newStopLoss = openPrice + (stopLoss - openPrice) / 2;
-        } else {
-          console.warn(`❌ Unknown trade side for position ${positionId}`);
-          continue;
-        }
-
-        // Round to match moneyDigits (2)
-        newStopLoss = parseFloat(newStopLoss.toFixed(position.moneyDigits));
-
-        console.log(
-          `➡️ Modifying SL for position ${positionId} from ${stopLoss} ➡️ ${newStopLoss}`
-        );
-
-        try {
-          this.modifyPosition({
+        for (const position of positions) {
+          const {
             positionId,
-            accountId,
-            payload: { stopLoss: newStopLoss, takeProfit },
-          });
-        } catch (err) {
-          console.error(
-            `❌ Failed to modify SL for position ${positionId}`,
-            err
+            stopLoss,
+            price: openPrice,
+            tradeData,
+            takeProfit,
+          } = position;
+
+          if (!stopLoss) {
+            console.log(`⚠️ Position ${positionId} has no SL set. Skipping.`);
+            continue;
+          }
+
+          const tradeSide = tradeData.tradeSide;
+          let newStopLoss;
+
+          if (tradeSide === 1) {
+            // BUY: SL is below entry
+            newStopLoss = openPrice - (openPrice - stopLoss) / 2;
+          } else if (tradeSide === 2) {
+            // SELL: SL is above entry
+            newStopLoss = openPrice + (stopLoss - openPrice) / 2;
+          } else {
+            console.warn(`❌ Unknown trade side for position ${positionId}`);
+            continue;
+          }
+
+          // Round to match moneyDigits (2)
+          newStopLoss = parseFloat(newStopLoss.toFixed(position.moneyDigits));
+
+          console.log(
+            `➡️ Modifying SL for position ${positionId} from ${stopLoss} ➡️ ${newStopLoss}`
           );
+
+          try {
+            this.modifyPosition({
+              positionId,
+              accountId,
+              payload: { stopLoss: newStopLoss, takeProfit },
+            });
+          } catch (err) {
+            console.error(
+              `❌ Failed to modify SL for position ${positionId}`,
+              err
+            );
+          }
         }
+      } catch (err) {
+        console.error(`❌ Failed to modify SL for position ${positionId}`, err);
       }
     }
+  }
+
+  // async calculateVolume({ accountId, entry, stopLoss, symbolId }) {
+  //   // get the account size
+  //   // we are risking 15% per trade meaning we are giving a room of 6 bad trades
+  //   const msgId = uid();
+  //   this.ws.send(
+  //     JSON.stringify({
+  //       clientMsgId: msgId,
+  //       payloadType: payloadTypes.PROTO_OA_TRADER_REQ,
+
+  //       payload: {
+  //         ctidTraderAccountId: accountId,
+  //       },
+  //     })
+  //   );
+
+  //   const handler = (event) => {
+  //     const serverMsg = JSON.parse(event.data);
+  //     if (serverMsg.clientMsgId !== msgId) return;
+
+  //     // got the response
+  //     if (serverMsg.propType === payloadTypes.PROTO_OA_TRADER_RES) {
+  //       // get the trader account details
+  //       // resolve(serverMsg.payload);
+  //       // lets calculate the volume now that we have the account details
+  //       // const balance = Math.trunc(serverMsg.payload.balance / 100) * 100;
+  //       // // based on the balance calculate
+  //       // let volume;
+  //       const pip = calculatePip({ entry, toPrice: stopLoss, symbolId });
+
+  //       console.log(pip, `Pip calculated from ${entry} to ${stopLoss} `);
+
+  //       resolve(serverMsg.payload);
+  //     }
+  //     if (serverMsg.payloadType === payloadTypes.PROTO_OA_ERROR_RES) {
+  //       console.error(
+  //         `❌ Failed to get account details of account with Account Id: ${accountId}:`,
+  //         serverMsg.payload.errorMessage
+  //       );
+  //       reject(new Error(serverMsg.payload.errorMessage));
+  //     }
+  //     this.ws.removeEventListener("message", handler);
+  //   };
+
+  //   this.ws.addEventListener("message", handler);
+  // }
+
+  async calculateVolume({ accountId, entry, stopLoss, symbolId }) {
+    return new Promise((resolve, reject) => {
+      const msgId = uid();
+
+      this.ws.send(
+        JSON.stringify({
+          clientMsgId: msgId,
+          payloadType: payloadTypes.PROTO_OA_TRADER_REQ,
+          payload: {
+            ctidTraderAccountId: accountId,
+          },
+        })
+      );
+
+      const handler = (event) => {
+        try {
+          const serverMsg = JSON.parse(event.data);
+          if (serverMsg.clientMsgId !== msgId) return;
+
+          this.ws.removeEventListener("message", handler);
+
+          // Success
+          if (serverMsg.payloadType === payloadTypes.PROTO_OA_TRADER_RES) {
+            console.log(serverMsg.payload);
+            //       // const balance = Math.trunc(serverMsg.payload.balance / 100) * 100;
+
+            let balance =
+              Math.trunc(serverMsg.payload.trader.balance / 100 / 100) * 100;
+
+            balance = balance < 100 ? 100 : balance;
+
+            console.log(balance);
+
+            // Come back and fix this function
+            const pipDiff = calculatePip({
+              entry,
+              toPrice: stopLoss,
+              symbolId,
+            });
+
+            console.log(`${pipDiff} pips between ${entry} and ${stopLoss}`);
+
+            const { minVolume } = getDetails(symbolId);
+
+            // Risking 15% per trade
+            const risk = balance * 0.15;
+
+            // const risk = 50;
+
+            console.log(risk, "risk");
+
+            // Assuming 1 pip = $1 for minVolume, scale accordingly
+            const pipValuePerMinLot = symbolId === 41 ? 1 : 10; // Example assumption
+
+            // rigorously test this part for bugs
+            const lotSize = risk / (pipDiff * pipValuePerMinLot);
+
+            console.log(lotSize, "lotSize");
+
+            // FIX: currency volume is buggy.
+            const volume = Math.trunc((lotSize * minVolume) / 0.01);
+
+            console.log(volume, "This is the volume");
+
+            resolve(volume);
+          }
+
+          // Error
+          if (serverMsg.payloadType === payloadTypes.PROTO_OA_ERROR_RES) {
+            console.error(
+              `❌ Failed to get account details for ID ${accountId}:`,
+              serverMsg.payload.errorMessage
+            );
+            reject(new Error(serverMsg.payload.errorMessage));
+          }
+        } catch (err) {
+          this.ws.removeEventListener("message", handler);
+          reject(err);
+        }
+      };
+
+      this.ws.addEventListener("message", handler);
+    });
   }
 }
 

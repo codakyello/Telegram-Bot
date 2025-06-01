@@ -8,67 +8,14 @@ const TradeBot = require("./tradeBot");
 const OAModel = require("./OAModel.json");
 const accountSymbols = require("./symbols");
 const credentials = require("./credentials");
-
-function isSignal(message) {
-  const hasAction = /(?:BUY|SELL)\s+[A-Z]+/i.test(message);
-  const hasEntry = /@\s*[\d.]+/i.test(message);
-  const hasTp = /TP\d*[\s:.\-@]*([\d.]+|open)/i.test(message);
-  const hasSl = /SL[\s:.\-@]*[\d.]+/i.test(message);
-  return hasAction && hasEntry && hasSl;
-}
-
-function parseSignal(message) {
-  const actionMatch = message.match(/\b(BUY|SELL)\b/i);
-  const orderTypeMatch = message.match(/\b(stop|limit)\b/i);
-  const symbolMatch = message.match(/\b(?:BUY|SELL)\s+([A-Z]{3,6})\b/i);
-  const entryMatch = message.match(/@\s*([\d.]+)/);
-
-  // Match TP1, TP2, TP etc. with flexible formatting and values like "open" or numbers
-  const tpMatches = [...message.matchAll(/TP\d*[\s:.\-@]*([\d.]+|open)/gi)];
-
-  const slMatch = message.match(/SL[\s:.\-@]*([\d.]+)/i);
-
-  return {
-    orderType: orderTypeMatch ? orderTypeMatch[1].toLowerCase() : "market",
-    action: actionMatch ? actionMatch[1].toUpperCase() : null,
-    symbol: symbolMatch ? symbolMatch[1].toUpperCase() : null,
-    entry: entryMatch ? entryMatch[1] : null,
-    tps: tpMatches.map((tp) => (tp[1].toLowerCase() === "open" ? null : tp[1])),
-    sl: slMatch ? slMatch[1] : null,
-  };
-}
-
-function getOrderType(type) {
-  const orderType = type?.toLowerCase();
-
-  if (orderType === "market") return OAModel.ProtoOAOrderType.MARKET;
-  if (orderType === "limit") return OAModel.ProtoOAOrderType.LIMIT;
-  if (orderType === "stop") return OAModel.ProtoOAOrderType.STOP;
-}
-
-// same symbolId for pairs listed in the function, it is okay here
-function getDetails(symbolId) {
-  switch (symbolId) {
-    case 41: // Gold (XAUUSD)
-      return { minVolume: 100, pipPosition: 5 };
-
-    case 10019: // Likely an exotic pair
-      return { minVolume: 5000, pipPosition: 5 };
-
-    case 10026: // Another exotic pair
-      return { minVolume: 100, pipPosition: 5 };
-
-    default: // Default for major FX pairs
-      return { minVolume: 100000, pipPosition: 5 };
-  }
-}
-
-function formatSymbol(sym) {
-  const symbol = sym.toLowerCase();
-  if (symbol === "gold") return "XAUUSD";
-  if (symbol === "oil") return "XTIUSD";
-  return sym;
-}
+const {
+  formatSymbol,
+  getDetails,
+  getOrderType,
+  parseSignal,
+  isSignal,
+  distributeVolumeAcrossTPs,
+} = require("./helper");
 
 // function getAction (action) {
 //   if(action.toLowerCase() === "buy") return OAModel.ProtoOATrade
@@ -143,7 +90,6 @@ class TelegramBotManager {
       //use to get id of private channels
       // const dialogs = await this.client.getDialogs();
       // for (const dialog of dialogs) {
-
       //   const rawId = dialog.entity.id.valueOf(); // unwrap BigInt
       //   const channelIdStr = "-100" + rawId.toString();
 
@@ -160,14 +106,7 @@ class TelegramBotManager {
   }
 
   async setupChannels() {
-    const channelsToMonitor = [
-      "SniperfxGang",
-      "kojoforextrades",
-      "Kommonforextrades",
-      "thechartwhisperersdiscussion",
-      "thechartwhisperers",
-      "-1002687802563",
-    ];
+    const channelsToMonitor = ["-1002687802563", "-1001677088035"];
 
     try {
       this.channels = await Promise.all(
@@ -205,11 +144,6 @@ class TelegramBotManager {
 
     this.client.addEventHandler(async (event) => {
       try {
-        console.log("Trading Bot started");
-      } catch (err) {
-        console.log(err, "⚠️ Error starting trading Bot");
-      }
-      try {
         const message = event.message.message;
         console.log(`📨 Message received: ${message.substring(0, 100)}...`);
 
@@ -227,30 +161,52 @@ class TelegramBotManager {
             symbol,
           } = signal;
 
-          const symbolId = accountSymbols[credentials.accountIds[0]].find(
-            (sym) =>
-              sym.symbolName.toLowerCase() ===
-              formatSymbol(symbol).toLowerCase()
-          )?.symbolId;
-
           // const symbolId = matchedSymbol ? matchedSymbol.symbolId : null;
+          // for each account place trade
+          credentials.accountIds.forEach(async (accountId) => {
+            const symbolId = accountSymbols[accountId].find(
+              (sym) =>
+                sym.symbolName.toLowerCase() ===
+                formatSymbol(symbol).toLowerCase()
+            )?.symbolId;
 
-          tps.forEach((tp) => {
-            tradeBot
-              .placeOrder({
-                // limitPrice: +entry,
-                entry: +entry,
-                symbol: formatSymbol(symbol),
-                volume: getDetails(symbolId).minVolume,
-                stopLoss: +stopLoss,
-                takeProfit: tp === "open" ? null : +tp,
-                orderType: getOrderType(orderType),
-                pipPosition: getDetails(symbolId).pipPosition,
-                action: OAModel.ProtoOATradeSide[action.toUpperCase()],
-              })
-              .catch((err) =>
-                console.error("❌ Failed to place order:", err.message)
-              );
+            // calculate the volume
+            const totalVolume = await tradeBot.calculateVolume({
+              accountId,
+              entry: Number(entry),
+              stopLoss: Number(stopLoss),
+              symbolId,
+            });
+            const parameters = distributeVolumeAcrossTPs({
+              tps,
+              totalVolume,
+              minVolume: getDetails(symbolId).minVolume,
+            });
+
+            console.log(parameters);
+
+            // Take only Gold trades for now
+            if (symbolId !== 41) return;
+
+            parameters.forEach((parameter) => {
+              tradeBot
+                .placeOrder({
+                  entry: Number(entry),
+                  accountId,
+                  symbolId,
+                  volume: parameter.volume,
+                  stopLoss: Number(stopLoss),
+                  takeProfit:
+                    parameter.tp === "open" ? null : Number(parameter.tp),
+                  orderType: getOrderType(orderType),
+                  pipPosition: getDetails(symbolId).pipPosition,
+                  action: OAModel.ProtoOATradeSide[action.toUpperCase()],
+                })
+                .catch((err) => {
+                  console.log(err, "This is the err");
+                  console.error("❌ Failed to place order:", err);
+                });
+            });
           });
 
           // send signal to db
@@ -268,7 +224,7 @@ class TelegramBotManager {
         }
 
         // reduce sl by half on every tp
-
+        // we will work on this one later
         if (!isSignal(message) && /tp\s*\d+\s*hit/i.test(message)) {
           await tradeBot.modifyAccountPositions();
         }

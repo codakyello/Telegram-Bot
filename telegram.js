@@ -78,15 +78,15 @@ class TelegramBotManager {
       console.log("Session String:", this.client.session.save());
       this.reconnectAttempts = 0;
 
-      setInterval(async () => {
-        try {
-          const pingId = BigInt(Date.now()); // Must be a BigInt
-          await this.client.invoke(new Api.Ping({ pingId }));
-          console.log("Ping sent at", new Date().toISOString());
-        } catch (err) {
-          console.error("Ping failed:", err);
-        }
-      }, 60 * 1000); // Every 60 seconds
+      // setInterval(async () => {
+      //   try {
+      //     const pingId = BigInt(Date.now()); // Must be a BigInt
+      //     await this.client.invoke(new Api.Ping({ pingId }));
+      //     console.log("Ping sent at", new Date().toISOString());
+      //   } catch (err) {
+      //     console.error("Ping failed:", err);
+      //   }
+      // }, 60 * 1000); // Every 60 seconds
       //use to get id of private channels
       // const dialogs = await this.client.getDialogs();
       // for (const dialog of dialogs) {
@@ -106,7 +106,11 @@ class TelegramBotManager {
   }
 
   async setupChannels() {
-    const channelsToMonitor = ["-1002687802563", "-1001677088035"];
+    const channelsToMonitor = [
+      "-1002687802563",
+      // "-1001677088035",
+      "thechartwhisperers",
+    ];
 
     try {
       this.channels = await Promise.all(

@@ -41,7 +41,7 @@ class TelegramBotManager {
   async initializeClient() {
     const apiId = Number(process.env.API_ID);
     const apiHash = process.env.API_HASH;
-    const stringSession = new StringSession("");
+    const stringSession = new StringSession(process.env.SESSION_STRING || "");
 
     this.client = new TelegramClient(stringSession, apiId, apiHash, {
       connectionRetries: 10,

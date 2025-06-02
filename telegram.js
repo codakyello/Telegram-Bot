@@ -23,7 +23,7 @@ const {
 
 const tradeBot = new TradeBot(credentials);
 
-const Intervals = [60, 90, 80, 120, 70, 100];
+// const Intervals = [60, 90, 80, 120, 70, 100];
 
 class TelegramBotManager {
   constructor() {
@@ -41,7 +41,7 @@ class TelegramBotManager {
   async initializeClient() {
     const apiId = Number(process.env.API_ID);
     const apiHash = process.env.API_HASH;
-    const stringSession = new StringSession(process.env.SESSION_STRING || "");
+    const stringSession = new StringSession("");
 
     this.client = new TelegramClient(stringSession, apiId, apiHash, {
       connectionRetries: 10,
@@ -81,15 +81,15 @@ class TelegramBotManager {
       console.log("Session String:", this.client.session.save());
       this.reconnectAttempts = 0;
 
-      setInterval(async () => {
-        try {
-          const pingId = BigInt(Date.now()); // Must be a BigInt
-          await this.client.invoke(new Api.Ping({ pingId }));
-          console.log("Ping sent at", new Date().toISOString());
-        } catch (err) {
-          console.error("Ping failed:", err);
-        }
-      }, Intervals[Math.floor(Math.random() * Intervals.length)] * 1000);
+      // setInterval(async () => {
+      //   try {
+      //     const pingId = BigInt(Date.now()); // Must be a BigInt
+      //     await this.client.invoke(new Api.Ping({ pingId }));
+      //     console.log("Ping sent at", new Date().toISOString());
+      //   } catch (err) {
+      //     console.error("Ping failed:", err);
+      //   }
+      // }, Intervals[Math.floor(Math.random() * Intervals.length)] * 1000);
       // Every 60 seconds
       //use to get id of private channels
       // const dialogs = await this.client.getDialogs();

@@ -672,7 +672,7 @@ class TradeBot {
             const { minVolume } = getDetails(symbolId);
 
             // Risking 15% per trade
-            const risk = balance * 0.15;
+            const risk = balance * 0.1;
 
             // const risk = 50;
 

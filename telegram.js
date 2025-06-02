@@ -15,6 +15,7 @@ const {
   parseSignal,
   isSignal,
   distributeVolumeAcrossTPs,
+  getRandomInterval,
 } = require("./helper");
 
 // function getAction (action) {
@@ -22,8 +23,6 @@ const {
 // }
 
 const tradeBot = new TradeBot(credentials);
-
-// const Intervals = [60, 90, 80, 120, 70, 100];
 
 class TelegramBotManager {
   constructor() {
@@ -81,26 +80,7 @@ class TelegramBotManager {
       console.log("Session String:", this.client.session.save());
       this.reconnectAttempts = 0;
 
-      // setInterval(async () => {
-      //   try {
-      //     const pingId = BigInt(Date.now()); // Must be a BigInt
-      //     await this.client.invoke(new Api.Ping({ pingId }));
-      //     console.log("Ping sent at", new Date().toISOString());
-      //   } catch (err) {
-      //     console.error("Ping failed:", err);
-      //   }
-      // }, Intervals[Math.floor(Math.random() * Intervals.length)] * 1000);
-      // Every 60 seconds
-      //use to get id of private channels
-      // const dialogs = await this.client.getDialogs();
-      // for (const dialog of dialogs) {
-      //   const rawId = dialog.entity.id.valueOf(); // unwrap BigInt
-      //   const channelIdStr = "-100" + rawId.toString();
-
-      //   console.log(
-      //     `Monitoring channel: ${dialog.entity.title} with ID: ${channelIdStr}`
-      //   );
-      // }
+      this.sendPing(); // Start pinging
     } catch (error) {
       console.error("Failed to authenticate:", error);
       throw error;
@@ -109,10 +89,22 @@ class TelegramBotManager {
     }
   }
 
+  async sendPing() {
+    try {
+      const pingId = BigInt(Date.now());
+      await this.client.invoke(new Api.Ping({ pingId }));
+      console.log("Ping sent at", new Date().toISOString());
+    } catch (err) {
+      console.error("Ping failed:", err);
+    }
+
+    setTimeout(this.sendPing.bind(this), getRandomInterval()); // Random delay *after* each ping
+  }
+
   async setupChannels() {
     const channelsToMonitor = [
-      "-1002687802563",
-      // "-1001677088035",
+      // "-1002687802563",
+      "-1001677088035",
       "thechartwhisperers",
     ];
 

@@ -61,6 +61,12 @@ function formatSymbol(sym) {
   return sym;
 }
 
+function getRandomInterval() {
+  const Intervals = [60, 90, 80, 120, 70, 100];
+
+  return Intervals[Math.floor(Math.random() * Intervals.length)] * 1000;
+}
+
 const roundToNearestHundredth = (num) => Math.round(num * 100) / 100;
 
 function roundSmart(volume) {
@@ -117,4 +123,5 @@ module.exports = {
   isSignal,
   roundToNearestHundredth,
   distributeVolumeAcrossTPs,
+  getRandomInterval,
 };

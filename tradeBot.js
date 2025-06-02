@@ -365,6 +365,11 @@ class TradeBot {
       try {
         const positions = await this.getOpenPositions(accountId);
 
+        if (positions.length === 0) {
+          console.log(`No open positions for account ${accountId}`);
+          return;
+        }
+
         positions.forEach((position) => {
           const clientMsgId = uid(); // Unique for each position
 

@@ -2,7 +2,7 @@ const WebSocket = require("ws");
 const payloadTypes = require("./payloadTypes.json");
 const fs = require("fs");
 const accountSymbols = require("./symbols");
-const { getDetails, roundToNearestHundredth } = require("./helper");
+const { getDetails } = require("./helper");
 
 const PROTO_HEARTBEAT_EVENT_PAYLOADTYPE = 51;
 
@@ -61,7 +61,7 @@ class TradeBot {
         this.ws = null;
       }
 
-      this.ws = new WebSocket("wss://demo.ctraderapi.com:5036");
+      this.ws = new WebSocket("wss://live.ctraderapi.com:5036");
 
       this.ws.onopen = () => {
         console.log("✅ WebSocket connection established.");
@@ -676,10 +676,8 @@ class TradeBot {
 
             const { minVolume } = getDetails(symbolId);
 
-            // Risking 15% per trade
+            // Risking 10% per trade
             const risk = balance * 0.1;
-
-            // const risk = 50;
 
             console.log(risk, "risk");
 

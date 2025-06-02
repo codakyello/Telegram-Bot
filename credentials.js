@@ -1,6 +1,6 @@
 module.exports = {
-  accountIds: [43558838, 43541351],
-  // accountIds: [43564686],
+  // accountIds: [43558838, 43541351],
+  accountIds: [43564686],
   accessToken: process.env.ACCESS_TOKEN,
   refreshToken: process.env.REFRESH_TOKEN,
   clientId: process.env.CLIENT_ID,

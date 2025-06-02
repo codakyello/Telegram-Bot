@@ -15,7 +15,6 @@ const {
   parseSignal,
   isSignal,
   distributeVolumeAcrossTPs,
-  getRandomInterval,
 } = require("./helper");
 
 const tradeBot = new TradeBot(credentials);

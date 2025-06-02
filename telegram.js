@@ -37,6 +37,7 @@ class TelegramBotManager {
     this.channels = [];
   }
 
+  // "//"
   async initializeClient() {
     const apiId = Number(process.env.API_ID);
     const apiHash = process.env.API_HASH;

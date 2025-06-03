@@ -49,7 +49,7 @@ client.on("update", async (update) => {
       console.log(`[Chat ${chatId}] Message: ${message}`);
 
       // You can add filters here for trade keywords like "Buy", "Sell", etc
-      if (isSignal(message) && chatId === "--1001807229698") {
+      if (isSignal(message) && chatId === -1001807229698) {
         const signal = parseSignal(message);
 
         const { orderType, action, entry, tps, sl: stopLoss, symbol } = signal;

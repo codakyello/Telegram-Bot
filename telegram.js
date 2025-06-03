@@ -3,6 +3,10 @@ dotenv.config({ path: `${__dirname}/config.env` });
 
 const tdl = require("tdl");
 const { getTdjson } = require("prebuilt-tdlib");
+const { TelegramClient, Api } = require("telegram");
+const { StringSession } = require("telegram/sessions");
+const { NewMessage } = require("telegram/events");
+const readline = require("readline");
 const Signal = require("./models/signalModel");
 const TradeBot = require("./tradeBot");
 const OAModel = require("./OAModel.json");
@@ -17,187 +21,35 @@ const {
   distributeVolumeAcrossTPs,
 } = require("./helper");
 
+tdl.configure({ tdjson: getTdjson() });
+
+console.log(process.env.API_ID, process.env.API_HASH);
+
 const tradeBot = new TradeBot(credentials);
 
-class TelegramBotManager {
-  constructor() {
-    this.client = null;
-    this.isReconnecting = false;
-    this.reconnectAttempts = 0;
-    this.maxReconnectAttempts = 10;
-    this.reconnectDelay = 5000;
-    this.healthCheckInterval = null;
-    this.channels = [];
+const client = tdl.createClient({
+  apiId: process.env.API_ID,
+  apiHash: process.env.API_HASH,
+  databaseDirectory: "./session", // save or load session from this folder
+});
+// Listen for TDLib errors
+client.on("error", (err) => {
+  console.error("TDLib error:", err);
+});
 
-    // Connection health monitoring
-    this.lastMessageTime = Date.now();
-    this.lastHealthCheck = Date.now();
-    this.healthCheckFrequency = 3 * 60 * 1000; // 3 minutes
-    this.maxSilentPeriod = 8 * 60 * 1000; // 8 minutes without any activity
-    this.isPerformingHealthCheck = false;
-  }
+// Listen for updates
+client.on("update", async (update) => {
+  if (update._ === "updateNewMessage") {
+    const message = update.message.content?.text?.text;
+    const chatId = update.message.chat_id;
 
-  async initializeClient() {
-    const apiId = Number(process.env.API_ID);
-    const apiHash = process.env.API_HASH;
-    const stringSession = new StringSession("");
+    console.log(message, "This is the message");
 
-    this.client = new TelegramClient(stringSession, apiId, apiHash, {
-      connectionRetries: 10,
-      retryDelay: 1000,
-      autoReconnect: true,
-      timeout: 30,
-      useIPV6: false,
-    });
-
-    return this.client;
-  }
-
-  async authenticateClient() {
-    const rl = readline.createInterface({
-      input: process.stdin,
-      output: process.stdout,
-    });
-
-    try {
-      await this.client.start({
-        phoneNumber: process.env.PHONE_NO,
-        password: () =>
-          new Promise((resolve) =>
-            rl.question("Enter your password: ", (answer) => resolve(answer))
-          ),
-        phoneCode: () =>
-          new Promise((resolve) =>
-            rl.question("Enter your phone code: ", (answer) => resolve(answer))
-          ),
-        onError: (err) => {
-          console.error("Authentication error:", err);
-          this.handleConnectionError(err);
-        },
-      });
-
-      console.log("✅ Logged in successfully!");
-      console.log("Session String:", this.client.session.save());
-      this.reconnectAttempts = 0;
-    } catch (error) {
-      console.error("Failed to authenticate:", error);
-      throw error;
-    } finally {
-      rl.close();
-    }
-  }
-
-  // Improved health check mechanism
-  async performHealthCheck() {
-    if (this.isPerformingHealthCheck || this.isReconnecting) {
-      return;
-    }
-
-    this.isPerformingHealthCheck = true;
-
-    try {
-      console.log("🔍 Performing connection health check...");
-
-      // Test connection with a lightweight API call
-      const result = await Promise.race([
-        this.client.invoke(new Api.help.GetConfig()),
-        new Promise((_, reject) =>
-          setTimeout(() => reject(new Error("Health check timeout")), 10000)
-        ),
-      ]);
-
-      if (result) {
-        console.log("✅ Connection health check passed");
-        this.lastHealthCheck = Date.now();
-        this.isPerformingHealthCheck = false;
-        return true;
-      }
-    } catch (error) {
-      console.error("❌ Health check failed:", error.message);
-      this.isPerformingHealthCheck = false;
-
-      // Connection is dead, trigger reconnection
-      console.log("🔄 Health check failed - triggering reconnection");
-      this.handleReconnection();
-      return false;
-    }
-
-    this.isPerformingHealthCheck = false;
-    return false;
-  }
-
-  startConnectionMonitoring() {
-    // Clear any existing interval
-    if (this.healthCheckInterval) {
-      clearInterval(this.healthCheckInterval);
-    }
-
-    this.healthCheckInterval = setInterval(async () => {
-      const now = Date.now();
-
-      // Check if we haven't received any messages for too long
-      const timeSinceLastMessage = now - this.lastMessageTime;
-      const timeSinceLastHealthCheck = now - this.lastHealthCheck;
-
-      // Perform health check if:
-      // 1. We haven't done one recently AND
-      // 2. (We haven't received messages for a while OR it's been too long since last check)
-      if (
-        timeSinceLastHealthCheck > this.healthCheckFrequency &&
-        (timeSinceLastMessage > this.maxSilentPeriod ||
-          timeSinceLastHealthCheck > this.healthCheckFrequency * 2)
-      ) {
-        console.log(`⚠️ Potential connection issue detected:`);
-        console.log(
-          `  - Time since last message: ${Math.round(
-            timeSinceLastMessage / 1000
-          )}s`
-        );
-        console.log(
-          `  - Time since last health check: ${Math.round(
-            timeSinceLastHealthCheck / 1000
-          )}s`
-        );
-
-        await this.performHealthCheck();
-      }
-
-      // Also check basic client connection status
-      if (this.client && !this.client.connected && !this.isReconnecting) {
-        console.log("❌ Client shows disconnected status");
-        this.handleReconnection();
-      }
-    }, 30000); // Check every 30 seconds
-
-    console.log("✅ Connection monitoring started");
-  }
-
-  async setupChannels() {
-    const channelsToMonitor = [
-      // "-1002687802563",
-      "-1001677088035",
-      "thechartwhisperers",
-    ];
-
-    try {
-      this.channels = await Promise.all(
-        channelsToMonitor.map(async (username) => {
-          try {
-            const entity = await this.client.getEntity(username);
-            console.log(`✅ Connected to channel: ${username}`);
-            return entity;
-          } catch (error) {
-            console.error(
-              `❌ Failed to connect to channel ${username}:`,
-              error.message
-            );
-            return null;
-          }
-        })
-      );
+    if (message) {
+      console.log(`[Chat ${chatId}] Message: ${message}`);
 
       // You can add filters here for trade keywords like "Buy", "Sell", etc
-      if (isSignal(message) && chatId === "-1001807229698") {
+      if (isSignal(message) && chatId === "--1001807229698") {
         const signal = parseSignal(message);
 
         const { orderType, action, entry, tps, sl: stopLoss, symbol } = signal;

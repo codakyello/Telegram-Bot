@@ -592,7 +592,7 @@
   {
     "symbolId": 1319,
     "symbolName": "EOS",
-    "enabled": true,
+    "enabled": false,
     "baseAssetId": 245,
     "quoteAssetId": 18,
     "symbolCategoryId": 103,

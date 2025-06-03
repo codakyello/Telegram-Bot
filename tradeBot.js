@@ -61,7 +61,7 @@ class TradeBot {
         this.ws = null;
       }
 
-      this.ws = new WebSocket("wss://live.ctraderapi.com:5036");
+      this.ws = new WebSocket("wss://demo.ctraderapi.com:5036");
 
       this.ws.onopen = () => {
         console.log("✅ WebSocket connection established.");
